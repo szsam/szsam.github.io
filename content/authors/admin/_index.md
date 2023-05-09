@@ -35,10 +35,10 @@ education:
   courses:
     - course: PhD in Electrical and Computer Engineering
       institution: Purdue University
-      year: 2019 - now
+      year: Aug 2019 - now
     - course: Bachelor in Computer Science and Technology
       institution: Nanjing University
-      year: 2015 - 2019
+      year: Sep 2015 - Jun 2019
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
