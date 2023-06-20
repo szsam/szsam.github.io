@@ -9,5 +9,8 @@ featured: false
 publication: "*Proceedings of the 24th ACM SIGPLAN/SIGBED International Conference on Languages, Compilers, and Tools for Embedded Systems (LCTES)*"
 tags: ["Embedded Systems", "Firmware", "Hardware Abstraction Layer", "Portability", "Static Analysis"]
 doi: "10.1145/3589610.3596271"
+url_slides: 'LCTES-paper9.pptx'
+url_video: 'https://www.youtube.com/watch?v=Bl0yquGFAM0&list=LL&index=4&t=3231s'
+url_code: 'https://github.com/RTOSExploration/lctes2023-artifact'
 ---
 
