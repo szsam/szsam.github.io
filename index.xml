@@ -9,7 +9,7 @@ Click on the &lt;strong>Slides&lt;/strong> button above to view the built-in sli
 &lt;li>&lt;strong>Upload&lt;/strong> an existing slide deck to &lt;code>static/&lt;/code> and link using &lt;code>url_slides&lt;/code> parameter in the front matter of the talk file&lt;/li>
 &lt;li>&lt;strong>Embed&lt;/strong> your slides (e.g. Google Slides) or presentation video on this page using &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">shortcodes&lt;/a>.&lt;/li>
 &lt;/ul>
-&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Welcome to Wowchemy, the website builder for Hugo</title><link>https://szsam.github.io/post/getting-started/</link><pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate><guid>https://szsam.github.io/post/getting-started/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">libr&lt;/span>
+&lt;p>Further event details, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">page elements&lt;/a> such as image galleries, can be added to the body of this page.&lt;/p></description></item><item><title>Towards Automated Identification of Layering Violations in Embedded Applications (WIP)</title><link>https://szsam.github.io/publication/shen-towards-2023/</link><pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate><guid>https://szsam.github.io/publication/shen-towards-2023/</guid><description/></item><item><title>Welcome to Wowchemy, the website builder for Hugo</title><link>https://szsam.github.io/post/getting-started/</link><pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate><guid>https://szsam.github.io/post/getting-started/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">libr&lt;/span>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;hello&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;ol>
@@ -156,7 +156,7 @@ console.log('code block');
 &lt;p>Wowchemy supports the popular &lt;a href="https://plot.ly/" target="_blank" rel="noopener">Plotly&lt;/a> format for interactive charts.&lt;/p>
 &lt;p>Save your Plotly JSON in your page folder, for example &lt;code>line-chart.json&lt;/code>, and then add the &lt;code>{{&amp;lt; chart data=&amp;quot;line-chart&amp;quot; &amp;gt;}}&lt;/code> shortcode where you would like the chart to appear.&lt;/p>
 &lt;p>Demo:&lt;/p>
-&lt;div id="chart-975283614" class="chart">&lt;/div>
+&lt;div id="chart-697514328" class="chart">&lt;/div>
 &lt;script>
 (function() {
 let a = setInterval( function() {
@@ -165,7 +165,7 @@ return;
 }
 clearInterval( a );
 Plotly.d3.json("./line-chart.json", function(chart) {
-Plotly.plot('chart-975283614', chart.data, chart.layout, {responsive: true});
+Plotly.plot('chart-697514328', chart.data, chart.layout, {responsive: true});
 });
 }, 500 );
 })();
@@ -544,82 +544,6 @@ Create your slides in Markdown - click the &lt;em>Slides&lt;/em> button to check
 &lt;/div>
 &lt;/div>
 &lt;p>Supplementary notes can be added here, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">code, math, and images&lt;/a>.&lt;/p></description></item><item><title>An example conference paper</title><link>https://szsam.github.io/publication/conference-paper/</link><pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate><guid>https://szsam.github.io/publication/conference-paper/</guid><description>&lt;div class="alert alert-note">
-&lt;div>
-Click the &lt;em>Cite&lt;/em> button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-&lt;/div>
-&lt;/div>
-&lt;div class="alert alert-note">
-&lt;div>
-Create your slides in Markdown - click the &lt;em>Slides&lt;/em> button to check out the example.
-&lt;/div>
-&lt;/div>
-&lt;h2 id="supplementary-notes-can-be-added-here-including-code-math-and-imageshttpswowchemycomdocswriting-markdown-latex">Supplementary notes can be added here, including &lt;a href="https://wowchemy.com/docs/writing-markdown-latex/" target="_blank" rel="noopener">code, math, and images&lt;/a>.&lt;/h2>
-&lt;p>title: &amp;lsquo;An example conference paper&amp;rsquo;&lt;/p>
-&lt;h1 id="authors">Authors&lt;/h1>
-&lt;h1 id="if-you-created-a-profile-for-a-user-eg-the-default-admin-user-write-the-username-folder-name-here">If you created a profile for a user (e.g. the default &lt;code>admin&lt;/code> user), write the username (folder name) here&lt;/h1>
-&lt;h1 id="and-it-will-be-replaced-with-their-full-name-and-linked-to-their-profile">and it will be replaced with their full name and linked to their profile.&lt;/h1>
-&lt;p>authors:&lt;/p>
-&lt;ul>
-&lt;li>admin&lt;/li>
-&lt;li>James C. Davis&lt;/li>
-&lt;li>Aravind Machiry&lt;/li>
-&lt;/ul>
-&lt;h1 id="author-notes-optional">Author notes (optional)&lt;/h1>
-&lt;p>#author_notes:&lt;/p>
-&lt;h1 id="--equal-contribution">- &amp;lsquo;Equal contribution&amp;rsquo;&lt;/h1>
-&lt;h1 id="--equal-contribution-1">- &amp;lsquo;Equal contribution&amp;rsquo;&lt;/h1>
-&lt;p>date: &amp;lsquo;2023-04-21T00:00:00Z&amp;rsquo;
-doi: &amp;lsquo;10.1145/3589610.3596271&amp;rsquo;&lt;/p>
-&lt;h1 id="schedule-page-publish-date-not-publications-date">Schedule page publish date (NOT publication&amp;rsquo;s date).&lt;/h1>
-&lt;p>publishDate: &amp;lsquo;2017-01-01T00:00:00Z&amp;rsquo;&lt;/p>
-&lt;h1 id="publication-type">Publication type.&lt;/h1>
-&lt;h1 id="legend-0--uncategorized-1--conference-paper-2--journal-article">Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;&lt;/h1>
-&lt;h1 id="3--preprint--working-paper-4--report-5--book-6--book-section">3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;&lt;/h1>
-&lt;h1 id="7--thesis-8--patent">7 = Thesis; 8 = Patent&lt;/h1>
-&lt;p>publication_types: [&amp;lsquo;1&amp;rsquo;]&lt;/p>
-&lt;h1 id="publication-name-and-optional-abbreviated-publication-name">Publication name and optional abbreviated publication name.&lt;/h1>
-&lt;p>publication: In &lt;em>Proceedings of the 24th ACM SIGPLAN/SIGBED International Conference on Languages, Compilers, and Tools for Embedded Systems&lt;/em>
-publication_short: In &lt;em>LCTES&lt;/em>&lt;/p>
-&lt;p>abstract: &amp;lsquo;For portability, embedded systems software follows a layered design to reduce dependence on particular hardware behavior. We consider the problem of identifying layering violations: instances where the embedded application accesses non-adjacent layers. This paper presents our preliminary work to detect a class of layering violations called &lt;em>Non Conventional MMIO Accesses (NCMAs)&lt;/em>. We find them by searching for direct Memory Mapped Input Output (MMIO) accesses made outside of the Hardware Abstraction Layer (HAL). For evaluation, we curated a list of 988 applications spanning 5 Real Time Operating Systems (RTOSes) &amp;ndash; &lt;em>the first large dataset of compilable embedded applications&lt;/em>. Our system identified 369 NCMAs. We reported these issues to the corresponding developers and found interesting reasons for committing layering violations. We have open-sourced our tool and the collected dataset to foster future research.&amp;rsquo;&lt;/p>
-&lt;h1 id="summary-an-optional-shortened-abstract">Summary. An optional shortened abstract.&lt;/h1>
-&lt;p>#summary:&lt;/p>
-&lt;p>tags: []&lt;/p>
-&lt;h1 id="display-this-page-in-the-featured-widget">Display this page in the Featured widget?&lt;/h1>
-&lt;p>featured: true&lt;/p>
-&lt;h1 id="custom-links-uncomment-lines-below">Custom links (uncomment lines below)&lt;/h1>
-&lt;h1 id="links">links:&lt;/h1>
-&lt;h1 id="--name-custom-link">- name: Custom Link&lt;/h1>
-&lt;h1 id="url-httpexampleorg">url: &lt;a href="http://example.org" target="_blank" rel="noopener">http://example.org&lt;/a>&lt;/h1>
-&lt;p>url_pdf: &amp;rsquo;'
-url_code: &amp;lsquo;&lt;a href="https://github.com/wowchemy/wowchemy-hugo-themes%27" target="_blank" rel="noopener">https://github.com/wowchemy/wowchemy-hugo-themes'&lt;/a>
-url_dataset: &amp;lsquo;&lt;a href="https://github.com/wowchemy/wowchemy-hugo-themes%27" target="_blank" rel="noopener">https://github.com/wowchemy/wowchemy-hugo-themes'&lt;/a>
-url_poster: &amp;rsquo;&amp;rsquo;
-url_project: &amp;rsquo;&amp;rsquo;
-url_slides: &amp;rsquo;'
-url_source: &amp;lsquo;&lt;a href="https://github.com/wowchemy/wowchemy-hugo-themes%27" target="_blank" rel="noopener">https://github.com/wowchemy/wowchemy-hugo-themes'&lt;/a>
-url_video: &amp;lsquo;&lt;a href="https://youtube.com" target="_blank" rel="noopener">https://youtube.com&lt;/a>&amp;rsquo;&lt;/p>
-&lt;h1 id="featured-image">Featured image&lt;/h1>
-&lt;h1 id="to-use-add-an-image-named-featuredjpgpng-to-your-pages-folder">To use, add an image named &lt;code>featured.jpg/png&lt;/code> to your page&amp;rsquo;s folder.&lt;/h1>
-&lt;p>image:
-caption: &amp;lsquo;Image credit: &lt;a href="https://unsplash.com/photos/pLCdAaMFLTE" target="_blank" rel="noopener">&lt;strong>Unsplash&lt;/strong>&lt;/a>&amp;rsquo;
-focal_point: &amp;rsquo;&amp;rsquo;
-preview_only: false&lt;/p>
-&lt;h1 id="associated-projects-optional">Associated Projects (optional).&lt;/h1>
-&lt;h1 id="associate-this-publication-with-one-or-more-of-your-projects">Associate this publication with one or more of your projects.&lt;/h1>
-&lt;h1 id="simply-enter-your-projects-folder-or-file-name-without-extension">Simply enter your project&amp;rsquo;s folder or file name without extension.&lt;/h1>
-&lt;h1 id="eg-internal-project-references-contentprojectinternal-projectindexmd">E.g. &lt;code>internal-project&lt;/code> references &lt;code>content/project/internal-project/index.md&lt;/code>.&lt;/h1>
-&lt;h1 id="otherwise-set-projects-">Otherwise, set &lt;code>projects: []&lt;/code>.&lt;/h1>
-&lt;p>projects:&lt;/p>
-&lt;ul>
-&lt;li>example&lt;/li>
-&lt;/ul>
-&lt;h1 id="slides-optional">Slides (optional).&lt;/h1>
-&lt;h1 id="associate-this-publication-with-markdown-slides">Associate this publication with Markdown slides.&lt;/h1>
-&lt;h1 id="simply-enter-your-slide-decks-filename-without-extension">Simply enter your slide deck&amp;rsquo;s filename without extension.&lt;/h1>
-&lt;h1 id="eg-slides-example-references-contentslidesexampleindexmd">E.g. &lt;code>slides: &amp;quot;example&amp;quot;&lt;/code> references &lt;code>content/slides/example/index.md&lt;/code>.&lt;/h1>
-&lt;h1 id="otherwise-set-slides-">Otherwise, set &lt;code>slides: &amp;quot;&amp;quot;&lt;/code>.&lt;/h1>
-&lt;h2 id="slides-example">slides: example&lt;/h2>
-&lt;div class="alert alert-note">
 &lt;div>
 Click the &lt;em>Cite&lt;/em> button above to demo the feature to enable visitors to import publication metadata into their reference management software.
 &lt;/div>
