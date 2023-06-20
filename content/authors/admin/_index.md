@@ -79,5 +79,6 @@ highlight_name: true
 
 I am a PhD student in the School of Electrical and Computer Engineering, Purdue University.
 My advisor is [Prof. Aravind Machiry](https://machiry.github.io/).
+I also work closely with [Prof. James Davis](https://davisjam.github.io/).
 My research interest is in systems and software security, currently focusing on security of embedded systems.
 {style="text-align: justify;"}
