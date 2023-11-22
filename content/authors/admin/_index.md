@@ -54,9 +54,9 @@ social:
   #  label: Follow me on Twitter
   #  display:
   #    header: true
-  #- icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
-  #  icon_pack: fas
-  #  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
+    icon_pack: fas
+    link: https://scholar.google.com/citations?hl=en&user=ApOKtSIAAAAJ
   - icon: github
     icon_pack: fab
     link: https://github.com/szsam
@@ -68,7 +68,7 @@ social:
   # and uncomment the lines below.
   - icon: cv
     icon_pack: ai
-    link: uploads/resume.pdf
+    link: uploads/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: 'shen497@purdue.edu'
@@ -77,8 +77,9 @@ email: 'shen497@purdue.edu'
 highlight_name: true
 ---
 
-I am a PhD student in the School of Electrical and Computer Engineering, Purdue University.
+I am a PhD student in the Elmore Family School of Electrical and Computer Engineering, Purdue University.
 My advisor is [Prof. Aravind Machiry](https://machiry.github.io/).
 I also work closely with [Prof. James Davis](https://davisjam.github.io/).
-My research interest is in systems and software security, currently focusing on security of embedded systems.
+My research interest is in systems and software security, currently focusing on
+static analysis and the security of embedded systems.
 {style="text-align: justify;"}
