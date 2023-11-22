@@ -8,7 +8,7 @@ abstract: "This paper performs the first study to understand the prevalence, cha
 featured: true
 #publication: "*Proceedings of the 24th ACM SIGPLAN/SIGBED International Conference on Languages, Compilers, and Tools for Embedded Systems (LCTES)*"
 tags: ["Embedded Systems", "Empirical Software Engineering", "Static Application Security Testing (SAST)"]
-doi: "arXiv:2310.00205"
+doi: "10.48550/arXiv.2310.00205"
 #url_slides: 'LCTES-paper9.pptx'
 #url_video: 'https://www.youtube.com/watch?v=Bl0yquGFAM0&list=LL&index=4&t=3231s'
 #url_code: 'https://github.com/RTOSExploration/lctes2023-artifact'
