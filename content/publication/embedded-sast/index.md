@@ -12,5 +12,6 @@ doi: "10.48550/arXiv.2310.00205"
 #url_slides: 'LCTES-paper9.pptx'
 #url_video: 'https://www.youtube.com/watch?v=Bl0yquGFAM0&list=LL&index=4&t=3231s'
 #url_code: 'https://github.com/RTOSExploration/lctes2023-artifact'
+url_poster: 'sast-poster.pdf'
 ---
 
