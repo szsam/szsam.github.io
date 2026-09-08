@@ -62,6 +62,10 @@ cv:
           - LLM-assisted CodeQL query synthesis
           - LLM-assisted generation of symbolic transformation rules
 
+    Open-Source Impact:
+      - label: Upstream patches
+        details: "107 patches merged into open-source projects (including Apache NuttX, Contiki-NG, Mbed OS, RIOT-OS, SDL, and lwIP) and 16 further reported bugs fixed by maintainers, fixing 300+ defects across 55 projects found by my CodeQL study; 376 of 709 disclosed defects confirmed by maintainers. Full list: https://szsam.github.io/impact/"
+
     Publications:
       - title: "Democratizing False Positives Filtering Through Learning Assisted Reasoning"
         publisher: 29th International Symposium on Research in Attacks, Intrusions and Defenses (RAID 2026), to appear

@@ -1,0 +1,266 @@
+# CodeQL C/C++ rules referenced in merged_patches.yml, with human-readable names and CWE ids.
+# Names and CWE tags come from the query metadata in github/codeql (cpp/ql/src).
+# Descendants of CWE-119 in the CWE Research View (view 1000) are normalized to CWE-119:
+# CWE-120, CWE-121, CWE-122, CWE-123, CWE-124, CWE-125, CWE-126, CWE-127, CWE-130, CWE-466, CWE-785, CWE-786, CWE-787, CWE-788, CWE-805, CWE-806, CWE-822, CWE-823, CWE-824, CWE-825.
+# CWE-415 (double free) and CWE-416 (use after free) are kept distinct: they reach CWE-119 only via CWE-825,
+# and their primary lineage is CWE-672 (operation on a resource after expiration or release).
+# `primary` is the CWE shown as the bug type on the impact page (chosen by hand for multi-CWE rules, favoring
+# the concrete consequence over the cause; CWE-762 for new-array-delete-mismatch is assigned by hand since CodeQL has no tag);
+# `short` is its display name. Rules without a CWE fall back to `name`.
+# A fix may also list a CWE id directly as its type (for bugs not found by a CodeQL rule); those resolve via `cwes`.
+cwes:
+  CWE-119:
+    short: "Buffer overflow"
+    name: "Improper restriction of operations within the bounds of a memory buffer"
+  CWE-772:
+    short: "Resource leak"
+    name: "Missing release of resource after effective lifetime"
+rules:
+  cpp/bad-addition-overflow-check:
+    name: "Bad check for overflow of integer addition"
+    primary: CWE-190
+    short: "Integer overflow"
+    cwes:
+      - id: CWE-190
+        name: "Integer overflow or wraparound"
+      - id: CWE-192
+        name: "Integer coercion error"
+  cpp/bad-strncpy-size:
+    name: "Possibly wrong buffer size in string copy"
+    primary: CWE-119
+    short: "Buffer overflow"
+    cwes:
+      - id: CWE-676
+        name: "Use of potentially dangerous function"
+      - id: CWE-119
+        name: "Improper restriction of operations within the bounds of a memory buffer"
+      - id: CWE-251
+        name: "String management issue"
+  cpp/badly-bounded-write:
+    name: "Badly bounded write"
+    primary: CWE-119
+    short: "Buffer overflow"
+    cwes:
+      - id: CWE-119
+        name: "Improper restriction of operations within the bounds of a memory buffer"
+  cpp/cleartext-transmission:
+    name: "Cleartext transmission of sensitive information"
+    primary: CWE-319
+    short: "Cleartext transmission"
+    cwes:
+      - id: CWE-319
+        name: "Cleartext transmission of sensitive information"
+      - id: CWE-359
+        name: "Exposure of private personal information"
+  cpp/comparison-precedence:
+    name: "Unclear comparison precedence"
+    cwes: []
+  cpp/constant-comparison:
+    name: "Comparison result is always the same"
+    cwes: []
+  cpp/duplicate-include-guard:
+    name: "Duplicate include guard"
+    cwes: []
+  cpp/implicit-function-declaration:
+    name: "Implicit function declaration"
+    cwes: []
+  cpp/inconsistent-null-check:
+    name: "Inconsistent nullness check"
+    primary: CWE-476
+    short: "Null pointer dereference"
+    cwes:
+      - id: CWE-476
+        name: "NULL pointer dereference"
+  cpp/incorrect-allocation-error-handling:
+    name: "Incorrect allocation-error handling"
+    primary: CWE-252
+    short: "Unchecked return value"
+    cwes:
+      - id: CWE-570
+        name: "Expression is always false"
+      - id: CWE-252
+        name: "Unchecked return value"
+      - id: CWE-755
+        name: "Improper handling of exceptional conditions"
+  cpp/logical-operator-applied-to-flag:
+    name: "Short-circuiting operator applied to flag"
+    primary: CWE-480
+    short: "Incorrect operator"
+    cwes:
+      - id: CWE-480
+        name: "Use of incorrect operator"
+  cpp/missing-check-scanf:
+    name: "Missing return-value check for a 'scanf'-like function"
+    primary: CWE-252
+    short: "Unchecked return value"
+    cwes:
+      - id: CWE-252
+        name: "Unchecked return value"
+      - id: CWE-253
+        name: "Incorrect check of function return value"
+  cpp/missing-return:
+    name: "Missing return statement"
+    cwes: []
+  cpp/nested-loops-with-same-variable:
+    name: "Nested loops with same variable"
+    cwes: []
+  cpp/new-array-delete-mismatch:
+    name: "'new[]' array freed with 'delete'"
+    primary: CWE-762
+    short: "Mismatched new/delete"
+    cwes:
+      - id: CWE-762
+        name: "Mismatched memory management routines"
+  cpp/no-space-for-terminator:
+    name: "No space for zero terminator"
+    primary: CWE-119
+    short: "Buffer overflow"
+    cwes:
+      - id: CWE-131
+        name: "Incorrect calculation of buffer size"
+      - id: CWE-119
+        name: "Improper restriction of operations within the bounds of a memory buffer"
+  cpp/non-constant-format:
+    name: "Non-constant format string"
+    primary: CWE-134
+    short: "Format string vulnerability"
+    cwes:
+      - id: CWE-134
+        name: "Use of externally-controlled format string"
+  cpp/non-member-const-no-effect:
+    name: "Constant return type"
+    cwes: []
+  cpp/offset-use-before-range-check:
+    name: "Array offset used before range check"
+    primary: CWE-119
+    short: "Buffer overflow"
+    cwes:
+      - id: CWE-119
+        name: "Improper restriction of operations within the bounds of a memory buffer"
+  cpp/overrunning-write:
+    name: "Potentially overrunning write"
+    primary: CWE-119
+    short: "Buffer overflow"
+    cwes:
+      - id: CWE-119
+        name: "Improper restriction of operations within the bounds of a memory buffer"
+  cpp/redefined-default-parameter:
+    name: "Redefined default parameter"
+    cwes: []
+  cpp/redundant-null-check-simple:
+    name: "Redundant null check due to previous dereference"
+    primary: CWE-476
+    short: "Null pointer dereference"
+    cwes:
+      - id: CWE-476
+        name: "NULL pointer dereference"
+  cpp/signed-overflow-check:
+    name: "Signed overflow check"
+    primary: CWE-190
+    short: "Integer overflow"
+    cwes:
+      - id: CWE-128
+        name: "Wrap-around error"
+      - id: CWE-190
+        name: "Integer overflow or wraparound"
+  cpp/stack-address-escape:
+    name: "Local variable address stored in non-local memory"
+    cwes: []
+  cpp/static-buffer-overflow:
+    name: "Static array access may cause overflow"
+    primary: CWE-119
+    short: "Buffer overflow"
+    cwes:
+      - id: CWE-119
+        name: "Improper restriction of operations within the bounds of a memory buffer"
+      - id: CWE-131
+        name: "Incorrect calculation of buffer size"
+  cpp/string-copy-return-value-as-boolean:
+    name: "Use of string copy function in a condition"
+    cwes: []
+  cpp/suspicious-sizeof:
+    name: "Suspicious 'sizeof' use"
+    primary: CWE-467
+    short: "sizeof() on a pointer"
+    cwes:
+      - id: CWE-467
+        name: "Use of sizeof() on a pointer type"
+  cpp/toctou-race-condition:
+    name: "Time-of-check time-of-use filesystem race condition"
+    primary: CWE-367
+    short: "TOCTOU race condition"
+    cwes:
+      - id: CWE-367
+        name: "Time-of-check time-of-use race condition"
+  cpp/unbounded-write:
+    name: "Unbounded write"
+    primary: CWE-119
+    short: "Buffer overflow"
+    cwes:
+      - id: CWE-119
+        name: "Improper restriction of operations within the bounds of a memory buffer"
+  cpp/uncontrolled-allocation-size:
+    name: "Uncontrolled allocation size"
+    primary: CWE-789
+    short: "Uncontrolled allocation size"
+    cwes:
+      - id: CWE-190
+        name: "Integer overflow or wraparound"
+      - id: CWE-789
+        name: "Memory allocation with excessive size value"
+  cpp/uninitialized-local:
+    name: "Potentially uninitialized local variable"
+    primary: CWE-457
+    short: "Use of uninitialized variable"
+    cwes:
+      - id: CWE-665
+        name: "Improper initialization"
+      - id: CWE-457
+        name: "Use of uninitialized variable"
+  cpp/unsafe-strcat:
+    name: "Potentially unsafe use of strcat"
+    primary: CWE-119
+    short: "Buffer overflow"
+    cwes:
+      - id: CWE-676
+        name: "Use of potentially dangerous function"
+      - id: CWE-119
+        name: "Improper restriction of operations within the bounds of a memory buffer"
+      - id: CWE-251
+        name: "String management issue"
+  cpp/use-after-free:
+    name: "Potential use after free"
+    primary: CWE-416
+    short: "Use after free"
+    cwes:
+      - id: CWE-416
+        name: "Use after free"
+  cpp/use-in-own-initializer:
+    name: "Variable used in its own initializer"
+    cwes: []
+  cpp/useless-expression:
+    name: "Expression has no effect"
+    primary: CWE-561
+    short: "Dead code"
+    cwes:
+      - id: CWE-561
+        name: "Dead code"
+  cpp/virtual-call-in-constructor:
+    name: "Virtual call from constructor or destructor"
+    cwes: []
+  cpp/wrong-number-format-arguments:
+    name: "Too few arguments to formatting function"
+    primary: CWE-685
+    short: "Wrong number of format arguments"
+    cwes:
+      - id: CWE-234
+        name: "Failure to handle missing parameter"
+      - id: CWE-685
+        name: "Function call with incorrect number of arguments"
+  cpp/wrong-type-format-argument:
+    name: "Wrong type of arguments to formatting function"
+    primary: CWE-686
+    short: "Wrong type of format argument"
+    cwes:
+      - id: CWE-686
+        name: "Function call with incorrect argument type"

@@ -1,0 +1,920 @@
+# Upstream fixes from the ISSTA 2025 CodeQL study.
+# kind: patch = a pull request I submitted that was merged; issue = a bug I reported (as an issue or a superseded PR) that maintainers fixed themselves.
+# types: CodeQL rule ids (resolved via codeql_rules.yml) or CWE ids (resolved via the cwes table in the same file).
+# Only Merged PRs and Closed-completed issues are included. Generated from the responsible-disclosure spreadsheet,
+# plus entries verified against GitHub afterwards (PikaPython pull 337 merged 2024-08-15; tinyusb issue 2502 closed completed 2026-09-08;
+# twin issue 84 closed completed 2026-01-03; glfw pull 2327 and netxduo pull 164 closed after maintainers fixed the bugs in their own commits).
+summary:
+  patches_merged: 107
+  issues_fixed: 16
+  repos: 55
+  defects_fixed: 332
+  security_defects_fixed: 257
+  defects_confirmed: 376
+  defects_discovered: 709
+repos:
+  - name: apache/nuttx
+    url: https://github.com/apache/nuttx
+    fixes:
+      - url: https://github.com/apache/nuttx/pull/9621
+        kind: patch
+        defects: 3
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/apache/nuttx/pull/12046
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/constant-comparison
+      - url: https://github.com/apache/nuttx/pull/12047
+        kind: patch
+        defects: 2
+        security: false
+        types:
+          - cpp/constant-comparison
+      - url: https://github.com/apache/nuttx/pull/12045
+        kind: patch
+        defects: 7
+        security: true
+        types:
+          - cpp/uninitialized-local
+      - url: https://github.com/apache/nuttx/pull/12031
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/uninitialized-local
+      - url: https://github.com/apache/nuttx/pull/9607
+        kind: patch
+        defects: 3
+        security: false
+        types:
+          - cpp/implicit-function-declaration
+      - url: https://github.com/apache/nuttx/pull/9644
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/toctou-race-condition
+      - url: https://github.com/apache/nuttx/pull/9604
+        kind: patch
+        defects: 4
+        security: false
+        types:
+          - cpp/duplicate-include-guard
+      - url: https://github.com/apache/nuttx/pull/9608
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/use-after-free
+      - url: https://github.com/apache/nuttx/pull/9613
+        kind: patch
+        defects: 6
+        security: true
+        types:
+          - CWE-772
+      - url: https://github.com/apache/nuttx/pull/9609
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/nested-loops-with-same-variable
+      - url: https://github.com/apache/nuttx/pull/9615
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/signed-overflow-check
+      - url: https://github.com/apache/nuttx/issues/9642
+        kind: issue
+        defects: 1
+        security: true
+        types:
+          - cpp/cleartext-transmission
+  - name: ARMmbed/mbed-os
+    url: https://github.com/ARMmbed/mbed-os
+    fixes:
+      - url: https://github.com/ARMmbed/mbed-os/pull/15406
+        kind: patch
+        defects: 15
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/ARMmbed/mbed-os/pull/15405
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/stack-address-escape
+      - url: https://github.com/ARMmbed/mbed-os/pull/15404
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/overrunning-write
+      - url: https://github.com/ARMmbed/mbed-os/pull/15401
+        kind: patch
+        defects: 6
+        security: false
+        types:
+          - cpp/virtual-call-in-constructor
+      - url: https://github.com/ARMmbed/mbed-os/pull/15403
+        kind: patch
+        defects: 3
+        security: false
+        types:
+          - cpp/redefined-default-parameter
+      - url: https://github.com/ARMmbed/mbed-os/pull/15402
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/new-array-delete-mismatch
+  - name: contiki-ng/contiki-ng
+    url: https://github.com/contiki-ng/contiki-ng
+    fixes:
+      - url: https://github.com/contiki-ng/contiki-ng/pull/2477
+        kind: patch
+        defects: 4
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/contiki-ng/contiki-ng/pull/2478
+        kind: patch
+        defects: 7
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/contiki-ng/contiki-ng/pull/2423
+        kind: patch
+        defects: 9
+        security: false
+        types:
+          - cpp/constant-comparison
+      - url: https://github.com/contiki-ng/contiki-ng/pull/2424
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/stack-address-escape
+      - url: https://github.com/contiki-ng/contiki-ng/pull/2422
+        kind: patch
+        defects: 2
+        security: false
+        types:
+          - cpp/duplicate-include-guard
+      - url: https://github.com/contiki-ng/contiki-ng/pull/2425
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/unsafe-strcat
+  - name: gozfree/gear-lib
+    url: https://github.com/gozfree/gear-lib
+    fixes:
+      - url: https://github.com/gozfree/gear-lib/pull/90
+        kind: patch
+        defects: 10
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/gozfree/gear-lib/pull/94
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/missing-check-scanf
+      - url: https://github.com/gozfree/gear-lib/pull/91
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/unbounded-write
+      - url: https://github.com/gozfree/gear-lib/pull/95
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+      - url: https://github.com/gozfree/gear-lib/pull/96
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/bad-strncpy-size
+      - url: https://github.com/gozfree/gear-lib/pull/93
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/badly-bounded-write
+          - cpp/static-buffer-overflow
+  - name: zlgopen/awtk
+    url: https://github.com/zlgopen/awtk
+    fixes:
+      - url: https://github.com/zlgopen/awtk/issues/825
+        kind: issue
+        defects: 8
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/zlgopen/awtk/issues/871
+        kind: issue
+        defects: 2
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/zlgopen/awtk/issues/835
+        kind: issue
+        defects: 1
+        security: true
+        types:
+          - cpp/uncontrolled-allocation-size
+      - url: https://github.com/zlgopen/awtk/issues/870
+        kind: issue
+        defects: 1
+        security: true
+        types:
+          - cpp/wrong-type-format-argument
+      - url: https://github.com/zlgopen/awtk/issues/827
+        kind: issue
+        defects: 1
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+      - url: https://github.com/zlgopen/awtk/issues/828
+        kind: issue
+        defects: 1
+        security: false
+        types:
+          - cpp/use-in-own-initializer
+  - name: embox/embox
+    url: https://github.com/embox/embox
+    fixes:
+      - url: https://github.com/embox/embox/pull/2765
+        kind: patch
+        defects: 4
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/embox/embox/pull/2768
+        kind: patch
+        defects: 6
+        security: true
+        types:
+          - cpp/missing-check-scanf
+      - url: https://github.com/embox/embox/pull/2766
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/uncontrolled-allocation-size
+      - url: https://github.com/embox/embox/pull/2769
+        kind: patch
+        defects: 2
+        security: false
+        types:
+          - cpp/constant-comparison
+      - url: https://github.com/embox/embox/pull/2770
+        kind: patch
+        defects: 4
+        security: false
+        types:
+          - cpp/non-member-const-no-effect
+  - name: LibVNC/libvncserver
+    url: https://github.com/LibVNC/libvncserver
+    fixes:
+      - url: https://github.com/LibVNC/libvncserver/pull/578
+        kind: patch
+        defects: 3
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/LibVNC/libvncserver/pull/582
+        kind: patch
+        defects: 6
+        security: true
+        types:
+          - cpp/missing-check-scanf
+      - url: https://github.com/LibVNC/libvncserver/pull/579
+        kind: patch
+        defects: 6
+        security: true
+        types:
+          - cpp/uncontrolled-allocation-size
+      - url: https://github.com/LibVNC/libvncserver/pull/581
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/constant-comparison
+      - url: https://github.com/LibVNC/libvncserver/pull/580
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+  - name: libsdl-org/SDL
+    url: https://github.com/libsdl-org/SDL
+    fixes:
+      - url: https://github.com/libsdl-org/SDL/pull/7641
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/libsdl-org/SDL/pull/7644
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/libsdl-org/SDL/pull/7645
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/libsdl-org/SDL/pull/9228
+        kind: patch
+        defects: 3
+        security: true
+        types:
+          - cpp/toctou-race-condition
+  - name: RIOT-OS/RIOT
+    url: https://github.com/RIOT-OS/RIOT
+    fixes:
+      - url: https://github.com/RIOT-OS/RIOT/pull/19756
+        kind: patch
+        defects: 12
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/RIOT-OS/RIOT/pull/19757
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/RIOT-OS/RIOT/pull/19749
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/useless-expression
+      - url: https://github.com/RIOT-OS/RIOT/pull/19739
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/bad-addition-overflow-check
+  - name: ardera/flutter-pi
+    url: https://github.com/ardera/flutter-pi
+    fixes:
+      - url: https://github.com/ardera/flutter-pi/pull/330
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/missing-check-scanf
+      - url: https://github.com/ardera/flutter-pi/pull/329
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+      - url: https://github.com/ardera/flutter-pi/pull/331
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - CWE-119
+  - name: aws/aws-iot-device-sdk-embedded-C
+    url: https://github.com/aws/aws-iot-device-sdk-embedded-C
+    fixes:
+      - url: https://github.com/aws/aws-iot-device-sdk-embedded-C/pull/1859
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/unbounded-write
+      - url: https://github.com/aws/aws-iot-device-sdk-embedded-C/pull/1860
+        kind: patch
+        defects: 2
+        security: false
+        types:
+          - cpp/constant-comparison
+      - url: https://github.com/aws/aws-iot-device-sdk-embedded-C/pull/1861
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/constant-comparison
+  - name: liudf0716/xkcptun
+    url: https://github.com/liudf0716/xkcptun
+    fixes:
+      - url: https://github.com/liudf0716/xkcptun/pull/51
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/liudf0716/xkcptun/pull/49
+        kind: patch
+        defects: 6
+        security: true
+        types:
+          - cpp/wrong-type-format-argument
+      - url: https://github.com/liudf0716/xkcptun/pull/50
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/wrong-number-format-arguments
+  - name: openlgtv/epk2extract
+    url: https://github.com/openlgtv/epk2extract
+    fixes:
+      - url: https://github.com/openlgtv/epk2extract/pull/75
+        kind: patch
+        defects: 3
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/openlgtv/epk2extract/pull/77
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+      - url: https://github.com/openlgtv/epk2extract/pull/76
+        kind: patch
+        defects: 2
+        security: false
+        types:
+          - cpp/duplicate-include-guard
+  - name: RT-Thread/rt-thread
+    url: https://github.com/RT-Thread/rt-thread
+    fixes:
+      - url: https://github.com/RT-Thread/rt-thread/pull/7666
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/constant-comparison
+      - url: https://github.com/RT-Thread/rt-thread/pull/7667
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+      - url: https://github.com/RT-Thread/rt-thread/pull/7668
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/redundant-null-check-simple
+  - name: apache/mynewt-nimble
+    url: https://github.com/apache/mynewt-nimble
+    fixes:
+      - url: https://github.com/apache/mynewt-nimble/pull/1555
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/missing-return
+      - url: https://github.com/apache/mynewt-nimble/pull/1556
+        kind: patch
+        defects: 3
+        security: false
+        types:
+          - cpp/implicit-function-declaration
+  - name: lwip-tcpip/lwip
+    url: https://github.com/lwip-tcpip/lwip
+    fixes:
+      - url: https://savannah.nongnu.org/patch/?10336
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://savannah.nongnu.org/patch/?10335
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/signed-overflow-check
+  - name: moonlight-stream/moonlight-embedded
+    url: https://github.com/moonlight-stream/moonlight-embedded
+    fixes:
+      - url: https://github.com/moonlight-stream/moonlight-embedded/pull/890
+        kind: patch
+        defects: 4
+        security: true
+        types:
+          - cpp/unbounded-write
+      - url: https://github.com/moonlight-stream/moonlight-embedded/issues/889
+        kind: issue
+        defects: 1
+        security: true
+        types:
+          - cpp/uninitialized-local
+  - name: pikasTech/PikaPython
+    url: https://github.com/pikasTech/PikaPython
+    fixes:
+      - url: https://github.com/pikasTech/PikaPython/pull/339
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/constant-comparison
+      - url: https://github.com/pikasTech/PikaPython/pull/338
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/non-constant-format
+      - url: https://github.com/pikasTech/PikaPython/pull/337
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/wrong-type-format-argument
+  - name: raysan5/raylib
+    url: https://github.com/raysan5/raylib
+    fixes:
+      - url: https://github.com/raysan5/raylib/pull/3795
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/unbounded-write
+      - url: https://github.com/raysan5/raylib/pull/3021
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+  - name: rusefi/rusefi
+    url: https://github.com/rusefi/rusefi
+    fixes:
+      - url: https://github.com/rusefi/rusefi/pull/5287
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+      - url: https://github.com/rusefi/rusefi/pull/5286
+        kind: patch
+        defects: 3
+        security: false
+        types:
+          - cpp/virtual-call-in-constructor
+  - name: stlink-org/stlink
+    url: https://github.com/stlink-org/stlink
+    fixes:
+      - url: https://github.com/stlink-org/stlink/pull/1307
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/stlink-org/stlink/pull/1306
+        kind: patch
+        defects: 5
+        security: true
+        types:
+          - cpp/missing-check-scanf
+          - cpp/unbounded-write
+  - name: TrampolineRTOS/trampoline
+    url: https://github.com/TrampolineRTOS/trampoline
+    fixes:
+      - url: https://github.com/TrampolineRTOS/trampoline/issues/127
+        kind: issue
+        defects: 1
+        security: true
+        types:
+          - cpp/unbounded-write
+      - url: https://github.com/TrampolineRTOS/trampoline/issues/125
+        kind: issue
+        defects: 2
+        security: true
+        types:
+          - cpp/wrong-type-format-argument
+  - name: wolfSSL/wolfssl
+    url: https://github.com/wolfSSL/wolfssl
+    fixes:
+      - url: https://github.com/wolfSSL/wolfssl/pull/7371
+        kind: patch
+        defects: 4
+        security: true
+        types:
+          - cpp/uncontrolled-allocation-size
+      - url: https://github.com/wolfSSL/wolfssl/pull/7370
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/suspicious-sizeof
+  - name: wolkykim/qlibc
+    url: https://github.com/wolkykim/qlibc
+    fixes:
+      - url: https://github.com/wolkykim/qlibc/pull/100
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/missing-check-scanf
+      - url: https://github.com/wolkykim/qlibc/pull/101
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/use-after-free
+  - name: xboot/xboot
+    url: https://github.com/xboot/xboot
+    fixes:
+      - url: https://github.com/xboot/xboot/pull/52
+        kind: patch
+        defects: 4
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+      - url: https://github.com/xboot/xboot/pull/53
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - CWE-119
+  - name: apache/mynewt-core
+    url: https://github.com/apache/mynewt-core
+    fixes:
+      - url: https://github.com/apache/mynewt-core/pull/3022
+        kind: patch
+        defects: 3
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+  - name: atomvm/AtomVM
+    url: https://github.com/atomvm/AtomVM
+    fixes:
+      - url: https://github.com/atomvm/AtomVM/pull/576
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+  - name: Azure/azure-c-shared-utility
+    url: https://github.com/Azure/azure-c-shared-utility
+    fixes:
+      - url: https://github.com/Azure/azure-c-shared-utility/pull/625
+        kind: patch
+        defects: 4
+        security: false
+        types:
+          - cpp/string-copy-return-value-as-boolean
+  - name: Azure/azure-iot-sdk-c
+    url: https://github.com/Azure/azure-iot-sdk-c
+    fixes:
+      - url: https://github.com/Azure/azure-iot-sdk-c/pull/2467
+        kind: patch
+        defects: 2
+        security: false
+        types:
+          - cpp/duplicate-include-guard
+  - name: cesanta/mongoose
+    url: https://github.com/cesanta/mongoose
+    fixes:
+      - url: https://github.com/cesanta/mongoose/pull/2171
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+  - name: civetweb/civetweb
+    url: https://github.com/civetweb/civetweb
+    fixes:
+      - url: https://github.com/civetweb/civetweb/pull/1171
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+  - name: DISTORTEC/distortos
+    url: https://github.com/DISTORTEC/distortos
+    fixes:
+      - url: https://github.com/DISTORTEC/distortos/pull/68
+        kind: patch
+        defects: 2
+        security: false
+        types:
+          - cpp/useless-expression
+  - name: illiliti/libudev-zero
+    url: https://github.com/illiliti/libudev-zero
+    fixes:
+      - url: https://github.com/illiliti/libudev-zero/pull/57
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/toctou-race-condition
+  - name: InfiniTimeOrg/InfiniTime
+    url: https://github.com/InfiniTimeOrg/InfiniTime
+    fixes:
+      - url: https://github.com/InfiniTimeOrg/InfiniTime/pull/1742
+        kind: patch
+        defects: 7
+        security: true
+        types:
+          - cpp/overrunning-write
+  - name: jnz/q3vm
+    url: https://github.com/jnz/q3vm
+    fixes:
+      - url: https://github.com/jnz/q3vm/pull/35
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/wrong-type-format-argument
+  - name: littlekernel/lk
+    url: https://github.com/littlekernel/lk
+    fixes:
+      - url: https://github.com/littlekernel/lk/pull/401
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - CWE-119
+  - name: lvgl/lvgl
+    url: https://github.com/lvgl/lvgl
+    fixes:
+      - url: https://github.com/lvgl/lvgl/pull/4155
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+  - name: majianjia/nnom
+    url: https://github.com/majianjia/nnom
+    fixes:
+      - url: https://github.com/majianjia/nnom/pull/216
+        kind: patch
+        defects: 7
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+  - name: micropython/micropython
+    url: https://github.com/micropython/micropython
+    fixes:
+      - url: https://github.com/micropython/micropython/pull/11306
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+  - name: monkey/monkey
+    url: https://github.com/monkey/monkey
+    fixes:
+      - url: https://github.com/monkey/monkey/pull/402
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/overrunning-write
+  - name: never-lang/never
+    url: https://github.com/never-lang/never
+    fixes:
+      - url: https://github.com/never-lang/never/issues/52
+        kind: issue
+        defects: 2
+        security: false
+        types:
+          - cpp/constant-comparison
+  - name: paladin-t/my_basic
+    url: https://github.com/paladin-t/my_basic
+    fixes:
+      - url: https://github.com/paladin-t/my_basic/pull/97
+        kind: patch
+        defects: 6
+        security: false
+        types:
+          - cpp/comparison-precedence
+  - name: rauc/rauc
+    url: https://github.com/rauc/rauc
+    fixes:
+      - url: https://github.com/rauc/rauc/pull/1171
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/uninitialized-local
+  - name: ryankurte/micro-gui
+    url: https://github.com/ryankurte/micro-gui
+    fixes:
+      - url: https://github.com/ryankurte/micro-gui/pull/6
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - cpp/implicit-function-declaration
+  - name: stateos/StateOS
+    url: https://github.com/stateos/StateOS
+    fixes:
+      - url: https://github.com/stateos/common/issues/1
+        kind: issue
+        defects: 15
+        security: true
+        types:
+          - cpp/incorrect-allocation-error-handling
+  - name: symisc/sod
+    url: https://github.com/symisc/sod
+    fixes:
+      - url: https://github.com/symisc/sod/pull/36
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/unbounded-write
+  - name: syoyo/tinyobjloader-c
+    url: https://github.com/syoyo/tinyobjloader-c
+    fixes:
+      - url: https://github.com/syoyo/tinyobjloader-c/pull/62
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - cpp/use-after-free
+  - name: tio/tio
+    url: https://github.com/tio/tio
+    fixes:
+      - url: https://github.com/tio/tio/pull/232
+        kind: patch
+        defects: 10
+        security: true
+        types:
+          - cpp/missing-check-scanf
+  - name: z88dk/z88dk
+    url: https://github.com/z88dk/z88dk
+    fixes:
+      - url: https://github.com/z88dk/z88dk/pull/2272
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/no-space-for-terminator
+  - name: zephyrproject-rtos/zephyr
+    url: https://github.com/zephyrproject-rtos/zephyr
+    fixes:
+      - url: https://github.com/zephyrproject-rtos/zephyr/pull/59286
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/offset-use-before-range-check
+  - name: zevv/zForth
+    url: https://github.com/zevv/zForth
+    fixes:
+      - url: https://github.com/zevv/zForth/pull/31
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/missing-check-scanf
+  - name: hathach/tinyusb
+    url: https://github.com/hathach/tinyusb
+    fixes:
+      - url: https://github.com/hathach/tinyusb/issues/2502
+        kind: issue
+        defects: 1
+        security: false
+        types:
+          - cpp/logical-operator-applied-to-flag
+  - name: cosmos72/twin
+    url: https://github.com/cosmos72/twin
+    fixes:
+      - url: https://github.com/cosmos72/twin/issues/84
+        kind: issue
+        defects: 1
+        security: true
+        types:
+          - cpp/uncontrolled-allocation-size
+  - name: glfw/glfw
+    url: https://github.com/glfw/glfw
+    fixes:
+      - url: https://github.com/glfw/glfw/pull/2327
+        kind: issue
+        defects: 2
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+  - name: eclipse-threadx/netxduo
+    url: https://github.com/eclipse-threadx/netxduo
+    fixes:
+      - url: https://github.com/eclipse-threadx/netxduo/pull/164
+        kind: issue
+        defects: 1
+        security: false
+        types:
+          - cpp/constant-comparison
