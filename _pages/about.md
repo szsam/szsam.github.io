@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD student, <a href='https://engineering.purdue.edu/ECE'>Electrical and Computer Engineering</a>, <a href='https://www.purdue.edu/'>Purdue University</a>.
+subtitle: PhD student @ <a href='https://engineering.purdue.edu/ECE'>Purdue ECE</a>
 
 profile:
   align: right
@@ -29,10 +29,13 @@ latest_posts:
       width: 22%;
     }
   }
+  .post h2 > a {
+    text-transform: capitalize;
+  }
 </style>
 
 I am a PhD student in the [Elmore Family School of Electrical and Computer Engineering](https://engineering.purdue.edu/ECE) at [Purdue University](https://www.purdue.edu/), advised by [Prof. Aravind Machiry](https://machiry.github.io/). Before Purdue, I received my Bachelor's degree in Computer Science and Technology from [Nanjing University](https://www.nju.edu.cn/).
 
-My research interests include **software security**, **static program analysis**, and **AI for software engineering**, with a focus on improving static analysis for large real-world software systems. I study how static analysis tools are used in practice and why they fall short on large codebases ([ISSTA 2025](https://doi.org/10.1145/3728923), [ICISS 2024](https://doi.org/10.1007/978-3-031-80020-7_13)), and how AI agents can make static analysis more precise and more useful to developers. This includes filtering false positives from SAST tools with tool-augmented LLM agents ([RAID 2026]({{ '/assets/pdf/shen2026democratizing.pdf' | relative_url }})), generating customized CodeQL queries for repository-specific vulnerability discovery, and learning symbolic transformation rules to automate large-scale collateral evolutions.
+My research interests span **software security**, **static program analysis**, and **AI for software engineering**, with a focus on making static analysis more effective for large, real-world software systems. I study how static analysis tools are used in practice and why they fall short on large codebases ([ISSTA 2025](https://doi.org/10.1145/3728923), [ICISS 2024](https://doi.org/10.1007/978-3-031-80020-7_13)). Motivated by these practical challenges, I explore how AI agents can improve the **precision, adaptability, and automation** of static analysis. My recent work includes using tool-augmented LLM agents to filter false positives from SAST tools ([RAID 2026]({{ '/assets/pdf/shen2026democratizing.pdf' | relative_url }})), generating repository-specific CodeQL queries for vulnerability discovery, and learning symbolic program-transformation rules to automate large-scale collateral evolution.
 
 I am currently looking for full-time positions in industry. If you think I would be a good fit for your team, please get in touch by email.
