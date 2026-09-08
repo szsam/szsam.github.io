@@ -1,9 +1,15 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
+# Venue abbreviations used in the `abbr` field of _bibliography/papers.bib.
+"ISSTA":
+  url: https://conf.researchr.org/series/issta
   color: "#00369f"
 
-"PhysRev":
-  url: https://journals.aps.org/
+"ICISS":
+  url: https://link.springer.com/conference/iciss
 
-"Vision":
+"LCTES":
+  url: https://conf.researchr.org/series/LCTES
   color: "#009f36"
+
+"RAID":
+  url: https://raid-symposium.github.io/
+  color: "#b31b1b"

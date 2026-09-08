@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2025-07-01 09:00:00-0400
 inline: true
 related_posts: false
 ---
 
-A simple inline announcement.
+Our experience paper on applying CodeQL to open-source embedded software, which found 709 defects across 258 projects, appears at ISSTA 2025.
