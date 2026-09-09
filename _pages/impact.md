@@ -100,7 +100,7 @@ This page lists defects I found with static analysis that were actually **fixed*
 
 ## Upstream fixes
 
-One row per merged pull request or fixed bug report, grouped by project and ordered by number of fixes per project. The bug type is the [CWE](https://cwe.mitre.org/) category of the defects, with descendants of CWE-119 grouped as buffer overflow; code-quality defects without a CWE are described in words. Bug types marked "security" are those we classified as security-relevant in the ISSTA study; all Aithos findings are memory-safety bugs.
+One row per merged pull request or fixed bug report, grouped by project and ordered by number of fixes per project. The bug type is the [CWE](https://cwe.mitre.org/) category of the defects, with descendants of CWE-119 grouped as buffer overflow; code-quality defects without a CWE are described in words. Bug types marked "security" are those we classified as security-relevant in the ISSTA study; all Aithos findings are memory-safety bugs. "Other" rows are bugs I found and reported outside either study.
 
 <div class="impact-filters">
   <label>
@@ -108,7 +108,7 @@ One row per merged pull request or fixed bug report, grouped by project and orde
     <select id="impact-filter-study">
       <option value="">All sources</option>
       {% for st in d.studies %}
-        <option value="{{ st[0] }}">{{ st[1] }}</option>
+        <option value="{{ st[0] }}">{{ st[1].name }}</option>
       {% endfor %}
     </select>
   </label>
@@ -222,7 +222,7 @@ One row per merged pull request or fixed bug report, grouped by project and orde
               {% assign link_text = link_text | split: '/' | last | prepend: '#' %}
             {% endif %}
             <td><a href="{{ p.url }}">{{ p.label | default: link_text }}</a></td>
-            <td class="text-muted">{% if repo.study == 'aithos' %}Aithos{% else %}ISSTA 2025{% endif %}</td>
+            <td class="text-muted">{{ d.studies[repo.study].short }}</td>
           </tr>
         {% endfor %}
       {% endfor %}

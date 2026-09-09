@@ -1,22 +1,33 @@
-# Upstream fixes from the ISSTA 2025 CodeQL study (study: issta2025) and from Aithos, the LLM-agent SAST triage
-# framework of the RAID 2026 paper (study: aithos). The `studies` table gives the display names.
+# Upstream fixes from the ISSTA 2025 CodeQL study (study: issta2025), from Aithos, the LLM-agent SAST triage
+# framework of the RAID 2026 paper (study: aithos), and manual bug reports not tied to either study (study: other).
+# The `studies` table gives the display names.
 # kind: patch = a pull request I submitted that was merged; issue = a bug I reported (as an issue or a superseded PR) that maintainers fixed themselves.
 # types: CodeQL rule ids (resolved via codeql_rules.yml) or CWE ids (resolved via the cwes table in the same file).
-# Only Merged PRs and Closed-completed issues are included. Generated from the responsible-disclosure spreadsheet,
+# Only merged PRs (or landed commits, for projects that take patches by mail) and closed-completed issues are included. Generated from the responsible-disclosure spreadsheet,
 # plus entries verified against GitHub afterwards (PikaPython pull 337 merged 2024-08-15; tinyusb issue 2502 closed completed 2026-09-08;
 # twin issue 84 closed completed 2026-01-03; glfw pull 2327 and netxduo pull 164 closed after maintainers fixed the bugs in their own commits).
 # Aithos entries verified 2026-09-08: zstd pull 4238 merged 2025-01-16, pciutils pull 207 merged 2025-06-21, util-linux pull 3615 merged
 # 2025-06-16; libidn commit ba07192 (2025-07-09) and xauth merge request 24 (merged 2025-01-29) fix bugs I reported; mawk issue 91 closed completed 2026-01-30.
-# `label` optionally overrides the link text shown on the impact page.
+# Entries added 2026-09-08/09 after auditing all my closed GitHub PRs and issues against this file: some are merged PRs
+# missing from the disclosure spreadsheet; others were closed unmerged but the fix still landed via a maintainer's own commit.
+# `label` optionally overrides the link text shown on the impact page. `studies` gives `name` (filter dropdown) and `short` (table column).
+# For projects that take patches by mail rather than pull requests (openssh, alsa), a patch entry links to the landed commit.
 studies:
-  issta2025: "ISSTA 2025 CodeQL study"
-  aithos: "Aithos (RAID 2026)"
+  issta2025:
+    name: "CodeQL study (ISSTA 2025)"
+    short: "CodeQL"
+  aithos:
+    name: "Aithos (RAID 2026)"
+    short: "Aithos"
+  other:
+    name: "Other (manual)"
+    short: "Other"
 summary:
-  patches_merged: 110
+  patches_merged: 125
   issues_fixed: 19
-  repos: 61
-  defects_fixed: 343
-  security_defects_fixed: 268
+  repos: 73
+  defects_fixed: 374
+  security_defects_fixed: 298
   defects_confirmed: 376
   defects_discovered: 709
 repos:
@@ -96,12 +107,12 @@ repos:
         security: true
         types:
           - cpp/signed-overflow-check
-      - url: https://github.com/apache/nuttx/issues/9642
-        kind: issue
-        defects: 1
+      - url: https://github.com/apache/nuttx/pull/13193
+        kind: patch
+        defects: 4
         security: true
         types:
-          - cpp/cleartext-transmission
+          - cpp/uninitialized-local
   - name: ARMmbed/mbed-os
     url: https://github.com/ARMmbed/mbed-os
     study: issta2025
@@ -142,6 +153,12 @@ repos:
         security: true
         types:
           - cpp/new-array-delete-mismatch
+      - url: https://github.com/ARMmbed/mbed-os/pull/15496
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/uninitialized-local
   - name: contiki-ng/contiki-ng
     url: https://github.com/contiki-ng/contiki-ng
     study: issta2025
@@ -962,6 +979,13 @@ repos:
         security: true
         types:
           - cpp/uncontrolled-allocation-size
+      - url: https://github.com/cosmos72/twin/commit/b08040ab0580e5d8b311150144f83be868487bf7
+        label: commit b08040a
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/toctou-race-condition
   - name: glfw/glfw
     url: https://github.com/glfw/glfw
     study: issta2025
@@ -982,6 +1006,67 @@ repos:
         security: false
         types:
           - cpp/constant-comparison
+  - name: apache/nuttx-apps
+    url: https://github.com/apache/nuttx-apps
+    study: issta2025
+    fixes:
+      - url: https://github.com/apache/nuttx-apps/pull/1817
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/cleartext-transmission
+  - name: Mbed-TLS/mbedtls
+    url: https://github.com/Mbed-TLS/mbedtls
+    study: issta2025
+    fixes:
+      - url: https://github.com/Mbed-TLS/mbedtls/pull/8897
+        kind: patch
+        defects: 3
+        security: true
+        types:
+          - cpp/unbounded-write
+  - name: wasm3/wasm3
+    url: https://github.com/wasm3/wasm3
+    study: issta2025
+    fixes:
+      - url: https://github.com/wasm3/wasm3/pull/467
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/uninitialized-local
+  - name: libts/tslib
+    url: https://github.com/libts/tslib
+    study: issta2025
+    fixes:
+      - url: https://github.com/libts/tslib/pull/205
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/unbounded-write
+  - name: Azure/azure-uamqp-c
+    url: https://github.com/Azure/azure-uamqp-c
+    study: issta2025
+    fixes:
+      - url: https://github.com/Azure/azure-uamqp-c/pull/455
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/inconsistent-null-check
+  - name: openssh/openssh-portable
+    url: https://github.com/openssh/openssh-portable
+    study: aithos
+    fixes:
+      - url: https://github.com/openssh/openssh-portable/commit/6157e1c41071fb0f5621868c38861934284268b1
+        label: commit 6157e1c4
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/uninitialized-local
   - name: libidn/libidn
     url: https://github.com/libidn/libidn
     study: aithos
@@ -1043,3 +1128,74 @@ repos:
         security: true
         types:
           - cpp/uncontrolled-allocation-size
+  - name: tmux/tmux
+    url: https://github.com/tmux/tmux
+    study: other
+    fixes:
+      - url: https://github.com/tmux/tmux/commit/a1873fef619acb858eb6a34078291580f30444e7
+        label: commit a1873fe
+        kind: issue
+        defects: 1
+        security: true
+        types:
+          - cpp/use-after-free
+  - name: alsa-project/alsa-lib
+    url: https://github.com/alsa-project/alsa-lib
+    study: other
+    fixes:
+      - url: https://github.com/alsa-project/alsa-lib/commit/0e0a92bde2a70142aef9e9921d08a11d9d4a59a9
+        label: commit 0e0a92b
+        kind: patch
+        defects: 2
+        security: true
+        types:
+          - CWE-119
+  - name: alsa-project/alsa-utils
+    url: https://github.com/alsa-project/alsa-utils
+    study: other
+    fixes:
+      - url: https://github.com/alsa-project/alsa-utils/commit/4ce6a0a4af518700c3e44257af5f44ff24d58fc9
+        label: commit 4ce6a0a
+        kind: patch
+        defects: 6
+        security: true
+        types:
+          - CWE-119
+          - CWE-134
+      - url: https://github.com/alsa-project/alsa-utils/commit/004d085c675c56f866f008dbf712ee7503de5b27
+        label: commit 004d085
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - CWE-119
+  - name: anope/anope
+    url: https://github.com/anope/anope
+    study: other
+    fixes:
+      - url: https://github.com/anope/anope/pull/334
+        kind: patch
+        defects: 6
+        security: true
+        types:
+          - cpp/wrong-type-format-argument
+  - name: aide/aide
+    url: https://github.com/aide/aide
+    study: other
+    fixes:
+      - url: https://github.com/aide/aide/pull/161
+        kind: patch
+        defects: 1
+        security: false
+        types:
+          - CWE-252
+  - name: nrfconnect/sdk-sidewalk
+    url: https://github.com/nrfconnect/sdk-sidewalk
+    study: other
+    fixes:
+      - url: https://github.com/nrfconnect/sdk-sidewalk/pull/452
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - CWE-119

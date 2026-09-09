@@ -15,6 +15,12 @@ cwes:
   CWE-772:
     short: "Resource leak"
     name: "Missing release of resource after effective lifetime"
+  CWE-134:
+    short: "Uncontrolled format string"
+    name: "Use of externally-controlled format string"
+  CWE-252:
+    short: "Unchecked return value"
+    name: "Unchecked return value"
 rules:
   cpp/bad-addition-overflow-check:
     name: "Bad check for overflow of integer addition"
