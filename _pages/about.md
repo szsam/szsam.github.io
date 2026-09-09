@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: PhD student @ <a href='https://engineering.purdue.edu/ECE'>Purdue ECE</a>
 

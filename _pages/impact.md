@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /impact/
-title: impact
+title: Impact
 description: Upstream fixes in open-source projects resulting from my research.
 nav: true
 nav_order: 4
