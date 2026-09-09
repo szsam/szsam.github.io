@@ -92,7 +92,7 @@ This page lists defects I found with static analysis that were actually **fixed*
 
 <div class="impact-stats">
   <div class="impact-stat"><div class="num">{{ d.summary.patches_merged }}</div><div class="label">patches merged</div></div>
-  <div class="impact-stat"><div class="num">{{ d.summary.issues_fixed }}</div><div class="label">reported bugs fixed by maintainers</div></div>
+  <div class="impact-stat"><div class="num">{{ d.summary.issues_fixed }}</div><div class="label">bug reports fixed by maintainers</div></div>
   <div class="impact-stat"><div class="num">{{ d.summary.repos }}</div><div class="label">open-source projects</div></div>
   <div class="impact-stat"><div class="num">{{ d.summary.defects_fixed }}</div><div class="label">defects fixed</div></div>
   <div class="impact-stat"><div class="num">{{ d.summary.security_defects_fixed }}</div><div class="label">security-relevant defects fixed</div></div>
