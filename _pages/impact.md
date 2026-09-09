@@ -150,7 +150,7 @@ One row per merged pull request or fixed bug report, grouped by project and orde
           {% if meta.primary %}
             {% assign label = meta.short | append: " (" | append: meta.primary | append: ")" %}
           {% else %}
-            {% assign label = meta.name | default: r %}
+            {% assign label = meta.short | default: meta.name | default: r %}
           {% endif %}
         {% endif %}
         {% assign labels = labels | push: label %}
@@ -193,7 +193,7 @@ One row per merged pull request or fixed bug report, grouped by project and orde
               {% if meta.primary %}
                 {% assign label = meta.short | append: " (" | append: meta.primary | append: ")" %}
               {% else %}
-                {% assign label = meta.name | default: r %}
+                {% assign label = meta.short | default: meta.name | default: r %}
               {% endif %}
             {% endif %}
             {% assign row_labels = row_labels | push: label %}

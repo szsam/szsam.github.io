@@ -6,7 +6,7 @@
 # and their primary lineage is CWE-672 (operation on a resource after expiration or release).
 # `primary` is the CWE shown as the bug type on the impact page (chosen by hand for multi-CWE rules, favoring
 # the concrete consequence over the cause; CWE-762 for new-array-delete-mismatch is assigned by hand since CodeQL has no tag);
-# `short` is its display name. Rules without a CWE fall back to `name`.
+# `short` is the display name (kept under ~30 characters for the table). Rules without a CWE may also set `short`; otherwise `name` is shown.
 # A fix may also list a CWE id directly as its type (for bugs not found by a CodeQL rule); those resolve via `cwes`.
 cwes:
   CWE-119:
@@ -57,6 +57,7 @@ rules:
     cwes: []
   cpp/constant-comparison:
     name: "Comparison result is always the same"
+    short: "Constant comparison result"
     cwes: []
   cpp/duplicate-include-guard:
     name: "Duplicate include guard"
@@ -165,6 +166,7 @@ rules:
         name: "Integer overflow or wraparound"
   cpp/stack-address-escape:
     name: "Local variable address stored in non-local memory"
+    short: "Stack address escape"
     cwes: []
   cpp/static-buffer-overflow:
     name: "Static array access may cause overflow"
@@ -177,6 +179,7 @@ rules:
         name: "Incorrect calculation of buffer size"
   cpp/string-copy-return-value-as-boolean:
     name: "Use of string copy function in a condition"
+    short: "strcpy result used as condition"
     cwes: []
   cpp/suspicious-sizeof:
     name: "Suspicious 'sizeof' use"
@@ -211,7 +214,7 @@ rules:
   cpp/uninitialized-local:
     name: "Potentially uninitialized local variable"
     primary: CWE-457
-    short: "Use of uninitialized variable"
+    short: "Uninitialized variable"
     cwes:
       - id: CWE-665
         name: "Improper initialization"
@@ -237,6 +240,7 @@ rules:
         name: "Use after free"
   cpp/use-in-own-initializer:
     name: "Variable used in its own initializer"
+    short: "Self-referential initializer"
     cwes: []
   cpp/useless-expression:
     name: "Expression has no effect"
@@ -247,11 +251,12 @@ rules:
         name: "Dead code"
   cpp/virtual-call-in-constructor:
     name: "Virtual call from constructor or destructor"
+    short: "Virtual call in constructor"
     cwes: []
   cpp/wrong-number-format-arguments:
     name: "Too few arguments to formatting function"
     primary: CWE-685
-    short: "Wrong number of format arguments"
+    short: "Wrong format argument count"
     cwes:
       - id: CWE-234
         name: "Failure to handle missing parameter"
@@ -260,7 +265,7 @@ rules:
   cpp/wrong-type-format-argument:
     name: "Wrong type of arguments to formatting function"
     primary: CWE-686
-    short: "Wrong type of format argument"
+    short: "Wrong format argument type"
     cwes:
       - id: CWE-686
         name: "Function call with incorrect argument type"
