@@ -85,7 +85,10 @@ nav_order: 4
   }
 </style>
 
-In [our ISSTA 2025 study](https://doi.org/10.1145/3728923), we applied CodeQL to 258 open-source embedded software projects and responsibly disclosed the defects it found. Maintainers confirmed {{ d.summary.defects_confirmed }} of the {{ d.summary.defects_discovered }} defects. Where possible, I submitted patches upstream; in other cases the maintainers fixed the bugs I reported themselves. This page lists only defects that were actually **fixed**: pull requests that were merged, and reported bugs that maintainers fixed.
+This page lists defects I found with static analysis that were actually **fixed** upstream: pull requests that were merged, and reported bugs that maintainers fixed themselves. They come from two lines of work.
+
+- In [our ISSTA 2025 study](https://doi.org/10.1145/3728923), we applied CodeQL to 258 open-source embedded software projects and responsibly disclosed the defects it found. Maintainers confirmed {{ d.summary.defects_confirmed }} of the {{ d.summary.defects_discovered }} defects.
+- With [Aithos]({{ '/assets/pdf/shen2026democratizing.pdf' | relative_url }}), the LLM-agent framework from our RAID 2026 paper that triages SAST alerts, I filtered CodeQL results on widely used system software and reported the true positives to projects such as zstd, util-linux, pciutils, libidn, xauth and mawk.
 
 <div class="impact-stats">
   <div class="impact-stat"><div class="num">{{ d.summary.patches_merged }}</div><div class="label">patches merged</div></div>
@@ -97,9 +100,18 @@ In [our ISSTA 2025 study](https://doi.org/10.1145/3728923), we applied CodeQL to
 
 ## Upstream fixes
 
-One row per merged pull request or fixed bug report, grouped by project and ordered by number of fixes per project. The bug type is the [CWE](https://cwe.mitre.org/) category of the defects, with descendants of CWE-119 grouped as buffer overflow; code-quality defects without a CWE are described in words. Bug types marked "security" are those we classified as security-relevant in the study.
+One row per merged pull request or fixed bug report, grouped by project and ordered by number of fixes per project. The bug type is the [CWE](https://cwe.mitre.org/) category of the defects, with descendants of CWE-119 grouped as buffer overflow; code-quality defects without a CWE are described in words. Bug types marked "security" are those we classified as security-relevant in the ISSTA study; all Aithos findings are memory-safety bugs.
 
 <div class="impact-filters">
+  <label>
+    Source
+    <select id="impact-filter-study">
+      <option value="">All sources</option>
+      {% for st in d.studies %}
+        <option value="{{ st[0] }}">{{ st[1] }}</option>
+      {% endfor %}
+    </select>
+  </label>
   <label>
     Project
     <select id="impact-filter-project">
@@ -160,6 +172,7 @@ One row per merged pull request or fixed bug report, grouped by project and orde
   <table class="table table-sm impact-table" id="impact-table">
     <thead>
       <tr>
+        <th scope="col">Source</th>
         <th scope="col">Project</th>
         <th scope="col">Bug type</th>
         <th scope="col" class="text-end">Defects</th>
@@ -186,7 +199,8 @@ One row per merged pull request or fixed bug report, grouped by project and orde
             {% assign row_labels = row_labels | push: label %}
           {% endfor %}
           {% assign row_labels = row_labels | uniq %}
-          <tr data-project="{{ repo.name }}" data-types="{{ row_labels | join: '|' }}" data-security="{{ p.security }}" data-kind="{{ p.kind }}">
+          <tr data-study="{{ repo.study }}" data-project="{{ repo.name }}" data-types="{{ row_labels | join: '|' }}" data-security="{{ p.security }}" data-kind="{{ p.kind }}">
+            <td class="text-muted">{% if repo.study == 'aithos' %}Aithos{% else %}ISSTA 2025{% endif %}</td>
             <td><a href="{{ repo.url }}">{{ repo.name }}</a></td>
             <td class="bugtype">
               {% for label in row_labels %}
@@ -204,7 +218,8 @@ One row per merged pull request or fixed bug report, grouped by project and orde
             </td>
             <td class="text-end">{% if p.defects > 0 %}{{ p.defects }}{% else %}&ndash;{% endif %}</td>
             <td>{% if p.kind == "patch" %}Patch, merged{% else %}Bug report, fixed by maintainers{% endif %}</td>
-            <td><a href="{{ p.url }}">{{ p.url | replace: 'https://github.com/', '' | replace: 'https://', '' | replace: repo.name, '' | remove_first: '/' }}</a></td>
+            {% assign link_text = p.url | replace: 'https://github.com/', '' | replace: 'https://', '' | replace: repo.name, '' | remove_first: '/' %}
+            <td><a href="{{ p.url }}">{{ p.label | default: link_text }}</a></td>
           </tr>
         {% endfor %}
       {% endfor %}
@@ -214,6 +229,7 @@ One row per merged pull request or fixed bug report, grouped by project and orde
 
 <script>
   (function () {
+    var study = document.getElementById("impact-filter-study");
     var project = document.getElementById("impact-filter-project");
     var rule = document.getElementById("impact-filter-rule");
     var kind = document.getElementById("impact-filter-kind");
@@ -225,6 +241,7 @@ One row per merged pull request or fixed bug report, grouped by project and orde
       var shown = 0;
       rows.forEach(function (row) {
         var ok =
+          (!study.value || row.dataset.study === study.value) &&
           (!project.value || row.dataset.project === project.value) &&
           (!kind.value || row.dataset.kind === kind.value) &&
           (!rule.value || row.dataset.types.split("|").indexOf(rule.value) !== -1) &&
@@ -235,7 +252,7 @@ One row per merged pull request or fixed bug report, grouped by project and orde
       count.textContent = "Showing " + shown + " of " + rows.length + " fixes";
     }
 
-    [project, kind, rule, security].forEach(function (el) {
+    [study, project, kind, rule, security].forEach(function (el) {
       el.addEventListener("change", apply);
     });
     apply();
