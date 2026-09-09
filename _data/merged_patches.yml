@@ -518,12 +518,14 @@ repos:
     study: issta2025
     fixes:
       - url: https://savannah.nongnu.org/patch/?10336
+        label: "patch #10336"
         kind: patch
         defects: 1
         security: true
         types:
           - cpp/inconsistent-null-check
       - url: https://savannah.nongnu.org/patch/?10335
+        label: "patch #10335"
         kind: patch
         defects: 1
         security: true
@@ -996,7 +998,6 @@ repos:
     study: aithos
     fixes:
       - url: https://gitlab.freedesktop.org/xorg/app/xauth/-/merge_requests/24
-        label: merge_requests/24
         kind: issue
         defects: 1
         security: true

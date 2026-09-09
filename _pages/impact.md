@@ -218,6 +218,9 @@ One row per merged pull request or fixed bug report, grouped by project and orde
             <td class="text-end">{% if p.defects > 0 %}{{ p.defects }}{% else %}&ndash;{% endif %}</td>
             <td>{% if p.kind == "patch" %}Patch, merged{% else %}Bug report, fixed by maintainers{% endif %}</td>
             {% assign link_text = p.url | replace: 'https://github.com/', '' | replace: 'https://', '' | replace: repo.name, '' | remove_first: '/' %}
+            {% if link_text contains 'pull/' or link_text contains 'issues/' or link_text contains 'merge_requests/' %}
+              {% assign link_text = link_text | split: '/' | last | prepend: '#' %}
+            {% endif %}
             <td><a href="{{ p.url }}">{{ p.label | default: link_text }}</a></td>
             <td class="text-muted">{% if repo.study == 'aithos' %}Aithos{% else %}ISSTA 2025{% endif %}</td>
           </tr>
