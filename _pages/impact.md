@@ -172,12 +172,12 @@ One row per merged pull request or fixed bug report, grouped by project and orde
   <table class="table table-sm impact-table" id="impact-table">
     <thead>
       <tr>
-        <th scope="col">Source</th>
         <th scope="col">Project</th>
         <th scope="col">Bug type</th>
         <th scope="col" class="text-end">Defects</th>
         <th scope="col">My contribution</th>
         <th scope="col">Link</th>
+        <th scope="col">Source</th>
       </tr>
     </thead>
     <tbody>
@@ -200,7 +200,6 @@ One row per merged pull request or fixed bug report, grouped by project and orde
           {% endfor %}
           {% assign row_labels = row_labels | uniq %}
           <tr data-study="{{ repo.study }}" data-project="{{ repo.name }}" data-types="{{ row_labels | join: '|' }}" data-security="{{ p.security }}" data-kind="{{ p.kind }}">
-            <td class="text-muted">{% if repo.study == 'aithos' %}Aithos{% else %}ISSTA 2025{% endif %}</td>
             <td><a href="{{ repo.url }}">{{ repo.name }}</a></td>
             <td class="bugtype">
               {% for label in row_labels %}
@@ -220,6 +219,7 @@ One row per merged pull request or fixed bug report, grouped by project and orde
             <td>{% if p.kind == "patch" %}Patch, merged{% else %}Bug report, fixed by maintainers{% endif %}</td>
             {% assign link_text = p.url | replace: 'https://github.com/', '' | replace: 'https://', '' | replace: repo.name, '' | remove_first: '/' %}
             <td><a href="{{ p.url }}">{{ p.label | default: link_text }}</a></td>
+            <td class="text-muted">{% if repo.study == 'aithos' %}Aithos{% else %}ISSTA 2025{% endif %}</td>
           </tr>
         {% endfor %}
       {% endfor %}
