@@ -1,10 +1,15 @@
+# RenderCV format (https://docs.rendercv.com/user_guide/yaml_input_structure/cv/).
+# The web CV page (al_folio_cv gem) and the RenderCV PDF workflow both read this file.
+# RenderCV allows extra keys on section entries but not at the top level, so
+# entry-level fields that only the web page reads (publisher, releaseDate, name,
+# keywords, as strings since RenderCV only substitutes string extras) are kept
+# alongside the RenderCV ones (journal, date, label, details).
 cv:
   name: Mingjie Shen
-  label: PhD Student, Electrical and Computer Engineering
+  headline: PhD Student, Electrical and Computer Engineering
   email: shen497@purdue.edu
-  location: West Lafayette, IN
-  image: ""
-  summary: PhD student at Purdue University advised by Prof. Aravind Machiry. Research on software security, static program analysis, and AI for software engineering, with a focus on improving static analysis for large real-world software systems.
+  location: West Lafayette, IN, USA
+  website: https://szsam.github.io/
 
   social_networks:
     - network: GitHub
@@ -14,78 +19,141 @@ cv:
     - network: Google Scholar
       username: ApOKtSIAAAAJ
 
-  address:
-    street: 465 Northwestern Ave
-    city: West Lafayette
-    region: Indiana
-    postalCode: 47907
-    countryCode: US
-
   sections:
+    Summary:
+      - bullet: "PhD student in ECE at Purdue working on software security, static program analysis, and AI for software engineering. Built Aithos, a tool-augmented LLM-agent framework that filters 78% of SAST false positives while keeping 97.5% of true positives (RAID 2026); applied CodeQL to 258 open-source embedded projects, finding 709 defects (ISSTA 2025); currently building LLM agents that synthesize CodeQL queries and program-transformation rules for EDK2 UEFI firmware. Over 100 of my patches have been [merged upstream](https://szsam.github.io/impact/) into projects including Apache NuttX, Contiki-NG, Mbed OS, RIOT, SDL, zstd, and util-linux. Seeking full-time software security or systems engineering roles in industry."
+
     Education:
       - institution: Purdue University
         location: West Lafayette, IN, USA
         url: https://engineering.purdue.edu/ECE
         area: Electrical and Computer Engineering
-        studyType: PhD
+        degree: PhD
         start_date: 2019-08
         end_date: present
         highlights:
           - "Advisor: Prof. Aravind Machiry"
-          - Research on software security, static program analysis, and AI for software engineering
+          - "GPA: Plan-of-Study 3.87, Overall 3.58"
 
       - institution: Nanjing University
         location: Nanjing, China
         url: https://www.nju.edu.cn/
         area: Computer Science and Technology
-        studyType: BSc
+        degree: BSc
         start_date: 2015-09
         end_date: 2019-06
+        highlights:
+          - "GPA: 4.58/5.0 (top 4%), Major GPA: 4.66/5.0"
 
-    Academic Interests:
-      - name: Software security
-        icon: fa-solid fa-shield-halved
-        keywords:
-          - Vulnerability detection
-          - embedded software security
-          - secure software development
-      - name: Static program analysis
-        icon: fa-solid fa-magnifying-glass-chart
-        keywords:
-          - Scalable and precise analysis of large real-world codebases
-          - CodeQL
-          - empirical studies of analysis tools
-      - name: AI for software engineering
-        icon: fa-solid fa-robot
-        keywords:
-          - LLM-assisted false positive filtering of SAST results
-          - LLM-assisted CodeQL query synthesis
-          - LLM-assisted generation of symbolic transformation rules
+    Experience:
+      - company: Purdue University
+        position: Research Assistant
+        location: West Lafayette, IN
+        start_date: 2023-01
+        end_date: present
+        summary: Static analysis and LLM-agent research under Prof. Aravind Machiry; responsible disclosure and upstream patching of defects in open-source software.
 
-    Open-Source Impact:
-      - label: Upstream patches
-        details: "107 patches merged into open-source projects (including Apache NuttX, Contiki-NG, Mbed OS, RIOT-OS, SDL, and lwIP) and 16 further reported bugs fixed by maintainers, fixing 300+ defects across 55 projects found by my CodeQL study; 376 of 709 disclosed defects confirmed by maintainers. Full list: https://szsam.github.io/impact/"
+      - company: Dartmouth College
+        position: Visiting Student Intern (full-time)
+        location: Hanover, NH
+        start_date: 2024-06
+        end_date: 2024-12
+        summary: Worked with Prof. Christophe Hauser on Aithos, an LLM-agent SAST triage framework (RAID 2026).
+
+    Projects:
+      - name: LLM Agents for Static Analysis of EDK2 UEFI Firmware
+        location: Purdue
+        start_date: 2025-01
+        end_date: present
+        highlights:
+          - Building LLM agents that generate EDK2-specific CodeQL queries for UEFI vulnerability discovery.
+          - Learning symbolic program-transformation rules to automate collateral evolution across EDK2.
+
+      - name: "Aithos: LLM-Agent Triage of Static Analysis Alerts"
+        location: Purdue & Dartmouth
+        start_date: 2024-06
+        end_date: 2026-10
+        highlights:
+          - Designed an LLM agentic framework that classifies SAST alerts from natural-language guidelines, dynamically retrieving program context through LLVM-based analysis primitives.
+          - Added a feedback loop that turns developer corrections into reusable, repository-specific examples.
+          - Preserved 97.5% of true positives while filtering 78.0% of false positives across four SAST tools on real-world C/C++ projects, outperforming a state-of-the-art baseline.
+          - Uncovered 90 unknown bugs in 28 popular Debian packages; fixes merged in zstd, util-linux, pciutils.
+
+      - name: Detecting 709 Defects in Open-Source Embedded Software with CodeQL
+        location: Purdue
+        start_date: 2023-03
+        end_date: 2024-12
+        highlights:
+          - Ran CodeQL across 258 GitHub projects; found 709 true defects at a 34% false positive rate, 535 (75%) likely security vulnerabilities (e.g., null pointer dereference, buffer overflow).
+          - "Got 376 (53%) defects confirmed by maintainers, mainly by submitting and merging [pull requests](https://github.com/pulls?q=is%3Amerged+is%3Apr+author%3Aszsam) to projects including those by Microsoft, Amazon, and the Apache Foundation; 2 CVEs issued."
+          - Opened pull requests adding CodeQL scans to CI pipelines; 37 (71% of active repositories) merged.
+
+      - name: Detecting Layering Violations in Embedded Systems
+        location: Purdue
+        start_date: 2022-07
+        end_date: 2023-03
+        highlights:
+          - Developed a static analysis tool to detect MMIO accesses bypassing the HAL.
+          - Analyzed 988 applications across 5 RTOSes; identified 369 violations.
 
     Publications:
       - title: "Democratizing False Positives Filtering Through Learning Assisted Reasoning"
+        authors:
+          - "***Mingjie Shen***"
+          - Sai Ritvik Tanksalkar
+          - Christophe Hauser
+          - Aravind Machiry
+        journal: 29th International Symposium on Research in Attacks, Intrusions and Defenses (RAID 2026), to appear
+        date: 2026
         publisher: 29th International Symposium on Research in Attacks, Intrusions and Defenses (RAID 2026), to appear
-        releaseDate: 2026
-        summary: Mingjie Shen, Sai Ritvik Tanksalkar, Christophe Hauser, Aravind Machiry
+        releaseDate: "2026"
 
       - title: "Finding 709 Defects in 258 Projects: An Experience Report on Applying CodeQL to Open-Source Embedded Software (Experience Paper)"
-        publisher: Proceedings of the ACM on Software Engineering, ISSTA 2025
-        releaseDate: 2025-07
+        authors:
+          - "***Mingjie Shen***"
+          - Akul Abhilash Pillai
+          - Brian A. Yuan
+          - James C. Davis
+          - Aravind Machiry
+        journal: Proc. ACM Softw. Eng. 2, ISSTA 2025, 1077–1100
+        date: 2025-07
         url: https://doi.org/10.1145/3728923
-        summary: Mingjie Shen, Akul Abhilash Pillai, Brian A. Yuan, James C. Davis, Aravind Machiry
+        publisher: Proc. ACM Softw. Eng. 2, ISSTA 2025, 1077–1100
+        releaseDate: "2025-07"
 
       - title: "Insights from Running 24 Static Analysis Tools on Open Source Software Repositories"
-        publisher: Information Systems Security (ICISS 2024)
-        releaseDate: 2024-12
+        authors:
+          - Fabiha Hashmat
+          - Zeyad Alwaleed Aljaali
+          - "***Mingjie Shen***"
+          - Aravind Machiry
+        journal: International Conference on Information Systems Security (ICISS 2024), LNCS 15416, 225–245
+        date: 2024-12
         url: https://doi.org/10.1007/978-3-031-80020-7_13
-        summary: Fabiha Hashmat, Zeyad Alwaleed Aljaali, Mingjie Shen, Aravind Machiry
+        publisher: International Conference on Information Systems Security (ICISS 2024), LNCS 15416, 225–245
+        releaseDate: "2024-12"
 
       - title: "Towards Automated Identification of Layering Violations in Embedded Applications (WIP)"
-        publisher: Languages, Compilers, and Tools for Embedded Systems (LCTES 2023)
-        releaseDate: 2023-06
+        authors:
+          - "***Mingjie Shen***"
+          - James C. Davis
+          - Aravind Machiry
+        journal: Languages, Compilers, and Tools for Embedded Systems (LCTES 2023), 143–147
+        date: 2023-06
         url: https://doi.org/10.1145/3589610.3596271
-        summary: Mingjie Shen, James C. Davis, Aravind Machiry
+        publisher: Languages, Compilers, and Tools for Embedded Systems (LCTES 2023), 143–147
+        releaseDate: "2023-06"
+
+    Skills:
+      - label: Languages
+        details: C, C++, Python, Bash
+        name: Languages
+        keywords: C, C++, Python, Bash
+      - label: Frameworks
+        details: CodeQL, LLVM, LangChain, GitHub Actions
+        name: Frameworks
+        keywords: CodeQL, LLVM, LangChain, GitHub Actions
+      - label: Areas
+        details: Static Analysis, Software Security, LLM Agents, Embedded Systems
+        name: Areas
+        keywords: Static Analysis, Software Security, LLM Agents, Embedded Systems
