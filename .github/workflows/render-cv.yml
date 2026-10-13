@@ -54,5 +54,9 @@ jobs:
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git add -A
+          if git diff --cached --quiet; then
+            echo "CV output unchanged; nothing to commit."
+            exit 0
+          fi
           git commit -m "chore: render the latest CV"
           git push
