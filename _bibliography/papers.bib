@@ -17,7 +17,7 @@
   year        = {2027},
   doi         = {10.1007/978-3-032-42929-2_1},
   pdf         = {shen2026democratizing.pdf},
-  abstract    = {Static Application Security Testing (SAST) tools generate high rates of false positives, creating a severe triage burden for developers. We introduce Aithos, an LLM-powered agentic framework that dynamically retrieves precise program context, invoking analysis primitives to gather evidence and classify SAST alerts based on natural-language guidelines, with a feedback loop that turns developer corrections into reusable, repository-specific examples. Aggregated over real-world datasets, Aithos preserves 97.5% of true positives (vs. 57.9% for a state-of-the-art baseline) while filtering 78.0% of false positives, and it uncovered 90 previously unknown bugs in 28 popular Debian packages.}
+  abstract    = {Static Application Security Testing (SAST) tools report many false positives, and LLMs struggle to triage alerts on large codebases because of limited context. We present Aithos, an LLM-agent framework that gathers program context on demand through analysis primitives and learns repository-specific examples from developer feedback. On real-world C/C++ projects, Aithos preserves 97.5% of true positives (vs. 57.9% for a state-of-the-art baseline) while filtering 78.0% of false positives, and it uncovered 90 previously unknown bugs in 28 popular Debian packages.}
 }
 
 @article{shen2025codeql,
@@ -38,7 +38,7 @@
   year        = {2025},
   doi         = {10.1145/3728923},
   arxiv       = {2310.00205},
-  abstract    = {In this experience paper, we report on a large-scale empirical study of Static Application Security Testing (SAST) in Open-Source Embedded Software (EMBOSS) repositories. We apply CodeQL to 258 EMBOSS projects, characterize the defects it reports, and share the lessons learned about using SAST on large real-world embedded codebases.}
+  abstract    = {We study the use of SAST tools in 258 popular Open-Source Embedded Software (EMBOSS) projects. Through program analysis and a developer survey, we find that only 3% of projects use advanced SAST tools. Applying CodeQL to these projects revealed 709 true defects at a 34% false positive rate; developers have confirmed 376 of them, two CVEs were issued, and 37 projects adopted our CodeQL workflows in their CI pipelines.}
 }
 
 @inproceedings{hashmat2024insights,
@@ -57,7 +57,8 @@
   publisher   = {Springer},
   year        = {2024},
   doi         = {10.1007/978-3-031-80020-7_13},
-  pdf         = {https://purs3lab.github.io/files/sastiss.pdf}
+  pdf         = {https://purs3lab.github.io/files/sastiss.pdf},
+  abstract    = {We present the first comprehensive study of 24 open-source static analysis tools, run through Omega Analyzer on 4,947 critical open-source repositories. We examine how easily the tools run on these repositories, what issues they find, and how accurate those issues are, offering insights into their effectiveness and directions for securing open-source software.}
 }
 
 @inproceedings{shen2023layering,
@@ -76,5 +77,6 @@
   publisher   = {{ACM}},
   year        = {2023},
   doi         = {10.1145/3589610.3596271},
-  code        = {https://github.com/RTOSExploration/lctes2023-artifact}
+  code        = {https://github.com/RTOSExploration/lctes2023-artifact},
+  abstract    = {Embedded software follows a layered design for portability. We detect a class of layering violations, Non Conventional MMIO Accesses (NCMAs), where applications access memory-mapped I/O directly instead of through the Hardware Abstraction Layer. On a new dataset of 988 compilable applications spanning 5 RTOSes, our tool identified 369 NCMAs, which we reported to developers.}
 }
