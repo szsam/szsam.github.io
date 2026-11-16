@@ -103,10 +103,11 @@ cv:
           - Sai Ritvik Tanksalkar
           - Christophe Hauser
           - Aravind Machiry
-        journal: 29th International Symposium on Research in Attacks, Intrusions and Defenses (RAID 2026), to appear
-        date: 2026
-        publisher: 29th International Symposium on Research in Attacks, Intrusions and Defenses (RAID 2026), to appear
-        releaseDate: "2026"
+        journal: Research in Attacks, Intrusions, and Defenses (RAID 2026), LNCS 17161, 3–32
+        date: 2027
+        url: https://doi.org/10.1007/978-3-032-42929-2_1
+        publisher: Research in Attacks, Intrusions, and Defenses (RAID 2026), LNCS 17161, 3–32
+        releaseDate: "2027"
 
       - title: "Finding 709 Defects in 258 Projects: An Experience Report on Applying CodeQL to Open-Source Embedded Software (Experience Paper)"
         authors:
