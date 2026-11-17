@@ -1,5 +1,6 @@
-# Upstream fixes from the ISSTA 2025 CodeQL study (study: issta2025), from Aithos, the LLM-agent SAST triage
-# framework of the RAID 2026 paper (study: aithos), and manual bug reports not tied to either study (study: other).
+# Upstream fixes from the ISSTA 2025 CodeQL study of open-source embedded software, EMBOSS (study: issta2025), from Aithos,
+# the LLM-agent SAST triage framework of the RAID 2026 paper (study: aithos), from my EDK II UEFI firmware work (study: edk2),
+# and manual bug reports not tied to any of these (study: other).
 # The `studies` table gives the display names.
 # kind: patch = a pull request I submitted that was merged; issue = a bug I reported (as an issue or a superseded PR) that maintainers fixed themselves.
 # types: CodeQL rule ids (resolved via codeql_rules.yml) or CWE ids (resolved via the cwes table in the same file).
@@ -12,22 +13,30 @@
 # missing from the disclosure spreadsheet; others were closed unmerged but the fix still landed via a maintainer's own commit.
 # `label` optionally overrides the link text shown on the impact page. `studies` gives `name` (filter dropdown) and `short` (table column).
 # For projects that take patches by mail rather than pull requests (openssh, alsa), a patch entry links to the landed commit.
+# EDK II entries verified 2026-11-17: pulls 12765 (merged 2026-07-07), 12880, 12234 and 11690 fix defects found by CodeQL.
+# EDK II issue 13432 (a boot regression found manually; closed completed 2026-11-05, fixed by maintainers in pull 13454)
+# is listed under study: other, so tianocore/edk2 appears twice in `repos`; `summary.repos` counts unique project names.
+# My other merged EDK II PRs (12539 CI refresh; 12552, 12557, 12558,
+# 12571, 13047, 13048 Coccinelle refactors with no defect fixed) are not listed, as they fix no defect.
 studies:
   issta2025:
-    name: "CodeQL study (ISSTA 2025)"
-    short: "CodeQL"
+    name: "EMBOSS (ISSTA 2025)"
+    short: "EMBOSS"
   aithos:
     name: "Aithos (RAID 2026)"
     short: "Aithos"
+  edk2:
+    name: "SAST4EDK2"
+    short: "SAST4EDK2"
   other:
     name: "Other (manual)"
     short: "Other"
 summary:
-  patches_merged: 125
-  issues_fixed: 19
-  repos: 73
-  defects_fixed: 374
-  security_defects_fixed: 298
+  patches_merged: 129
+  issues_fixed: 20
+  repos: 74
+  defects_fixed: 381
+  security_defects_fixed: 304
   defects_confirmed: 376
   defects_discovered: 709
 repos:
@@ -1128,6 +1137,35 @@ repos:
         security: true
         types:
           - cpp/uncontrolled-allocation-size
+  - name: tianocore/edk2
+    url: https://github.com/tianocore/edk2
+    study: edk2
+    fixes:
+      - url: https://github.com/tianocore/edk2/pull/12765
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - CWE-252
+          - CWE-119
+      - url: https://github.com/tianocore/edk2/pull/12880
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - cpp/suspicious-sizeof
+      - url: https://github.com/tianocore/edk2/pull/12234
+        kind: patch
+        defects: 1
+        security: true
+        types:
+          - CWE-772
+      - url: https://github.com/tianocore/edk2/pull/11690
+        kind: patch
+        defects: 3
+        security: true
+        types:
+          - cpp/redundant-null-check-simple
   - name: tmux/tmux
     url: https://github.com/tmux/tmux
     study: other
@@ -1199,3 +1237,13 @@ repos:
         security: true
         types:
           - CWE-119
+  - name: tianocore/edk2
+    url: https://github.com/tianocore/edk2
+    study: other
+    fixes:
+      - url: https://github.com/tianocore/edk2/issues/13432
+        kind: issue
+        defects: 1
+        security: false
+        types:
+          - Boot regression

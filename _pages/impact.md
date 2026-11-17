@@ -85,10 +85,11 @@ nav_order: 4
   }
 </style>
 
-This page lists defects I found with static analysis that were actually **fixed** upstream: pull requests that were merged, and reported bugs that maintainers fixed themselves. They come from two lines of work.
+This page lists defects I found with static analysis that were actually **fixed** upstream: pull requests that were merged, and reported bugs that maintainers fixed themselves. They come from three lines of work.
 
-- In [our ISSTA 2025 study](https://doi.org/10.1145/3728923), we applied CodeQL to 258 open-source embedded software projects and responsibly disclosed the defects it found. Maintainers confirmed {{ d.summary.defects_confirmed }} of the {{ d.summary.defects_discovered }} defects.
+- In [our ISSTA 2025 study](https://doi.org/10.1145/3728923), we applied CodeQL to 258 open-source embedded software (EMBOSS) projects and responsibly disclosed the defects it found. Maintainers confirmed {{ d.summary.defects_confirmed }} of the {{ d.summary.defects_discovered }} defects.
 - With [Aithos]({{ '/assets/pdf/shen2026democratizing.pdf' | relative_url }}), the LLM-agent framework from our RAID 2026 paper that triages SAST alerts, I filtered CodeQL results on widely used system software and reported the true positives to projects such as zstd, util-linux, pciutils, libidn, xauth and mawk.
+- In SAST4EDK2, my work on applying static analysis to [EDK II](https://github.com/tianocore/edk2), the open-source reference implementation of UEFI firmware, I fixed defects found by CodeQL's built-in queries and by my firmware-specific taint models and queries, including a GPT parsing bug in the TPM measured-boot library.
 
 <div class="impact-stats">
   <div class="impact-stat"><div class="num">{{ d.summary.patches_merged }}</div><div class="label">patches merged</div></div>
@@ -100,7 +101,7 @@ This page lists defects I found with static analysis that were actually **fixed*
 
 ## Upstream fixes
 
-One row per merged pull request or fixed bug report, grouped by project and ordered by number of fixes per project. The bug type is the [CWE](https://cwe.mitre.org/) category of the defects, with descendants of CWE-119 grouped as buffer overflow; code-quality defects without a CWE are described in words. Bug types marked "security" are those we classified as security-relevant in the ISSTA study; all Aithos findings are memory-safety bugs. "Other" rows are bugs I found and reported outside either study.
+One row per merged pull request or fixed bug report, grouped by project and ordered by number of fixes per project. The bug type is the [CWE](https://cwe.mitre.org/) category of the defects, with descendants of CWE-119 grouped as buffer overflow; code-quality defects without a CWE are described in words. Bug types marked "security" are those we classified as security-relevant in the ISSTA study, applied the same way to EDK II; all Aithos findings are memory-safety bugs. "Other" rows are bugs I found and reported outside these three lines of work.
 
 <div class="impact-filters">
   <label>
@@ -116,8 +117,13 @@ One row per merged pull request or fixed bug report, grouped by project and orde
     Project
     <select id="impact-filter-project">
       <option value="">All projects</option>
-      {% for repo in d.repos %}
-        <option value="{{ repo.name }}">{{ repo.name }} ({{ repo.fixes | size }})</option>
+      {% assign repo_groups = d.repos | group_by: "name" %}
+      {% for g in repo_groups %}
+        {% assign n_fixes = 0 %}
+        {% for r in g.items %}
+          {% assign n_fixes = n_fixes | plus: r.fixes.size %}
+        {% endfor %}
+        <option value="{{ g.name }}">{{ g.name }} ({{ n_fixes }})</option>
       {% endfor %}
     </select>
   </label>
