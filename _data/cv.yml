@@ -21,7 +21,7 @@ cv:
 
   sections:
     Summary:
-      - bullet: "PhD student in ECE at Purdue working on software security, static program analysis, and AI for software engineering. Built Aithos, a tool-augmented LLM-agent framework that filters 78% of SAST false positives while keeping 97.5% of true positives (RAID 2026); applied CodeQL to 258 open-source embedded projects, finding 709 defects (ISSTA 2025); currently building LLM agents that synthesize CodeQL queries and program-transformation rules for EDK2 UEFI firmware. Over 100 of my patches have been [merged upstream](https://szsam.github.io/impact/) into projects including Apache NuttX, Contiki-NG, Mbed OS, RIOT, SDL, zstd, and util-linux. Seeking full-time software security or systems engineering roles in industry."
+      - bullet: "PhD student in ECE at Purdue working on software security, static program analysis, and AI for software engineering. Built Aithos, a tool-augmented LLM-agent framework that filters 78% of SAST false positives while keeping 97.5% of true positives (RAID 2026); applied CodeQL to 258 open-source embedded projects, finding 709 defects (ISSTA 2025); wrote CodeQL queries for EDK II UEFI firmware that catch all 15 past CVEs and found 10 new vulnerabilities; currently developing an agentic technique that automatically learns program-transformation rules for EDK II and Linux. Over 100 of my patches have been [merged upstream](https://szsam.github.io/impact/) into projects including Apache NuttX, Contiki-NG, Mbed OS, RIOT, SDL, zstd, and util-linux. Seeking full-time software security or systems engineering roles in industry."
 
     Education:
       - institution: Purdue University
@@ -51,7 +51,7 @@ cv:
         location: West Lafayette, IN
         start_date: 2023-01
         end_date: present
-        summary: Static analysis and LLM-agent research under Prof. Aravind Machiry; responsible disclosure and upstream patching of defects in open-source software.
+        summary: Worked with Prof. Aravind Machiry on static analysis and LLM agents for software security.
 
       - company: Dartmouth College
         position: Visiting Student Intern (full-time)
@@ -61,13 +61,21 @@ cv:
         summary: Worked with Prof. Christophe Hauser on Aithos, an LLM-agent SAST triage framework (RAID 2026).
 
     Projects:
-      - name: LLM Agents for Static Analysis of EDK2 UEFI Firmware
+      - name: Applying CodeQL Effectively to EDK II UEFI Firmware
+        location: Purdue
+        start_date: 2025
+        end_date: 2026
+        highlights:
+          - "Audited EDK II's CodeQL CI deployment: outdated CodeQL, a misconfigured query suite, the most CVE-prone package excluded from builds, and no triage policy; submitted [version](https://github.com/tianocore/edk2/pull/12539) and [coverage](https://github.com/tianocore/edk2/pull/12540) fixes."
+          - "Showed built-in queries catch only 1 of 15 past CVEs at 57.1% precision: they miss firmware untrusted inputs and target common C bug patterns, not EDK II's."
+          - "Developed EDK II taint models and queries catching all 15 CVEs at 84.4% precision, outperforming KNighter; found 10 new vulnerabilities, 1 [confirmed and fixed](https://github.com/tianocore/edk2/pull/12765)."
+
+      - name: Learning Program-Transformation Rules for Collateral Evolution
         location: Purdue
         start_date: 2025-01
         end_date: present
         highlights:
-          - Building LLM agents that generate EDK2-specific CodeQL queries for UEFI vulnerability discovery.
-          - Learning symbolic program-transformation rules to automate collateral evolution across EDK2.
+          - Developing an agentic technique that automatically learns symbolic program-transformation rules to automate collateral evolution in EDK II and the Linux kernel.
 
       - name: "Aithos: LLM-Agent Triage of Static Analysis Alerts"
         location: Purdue & Dartmouth
@@ -147,14 +155,14 @@ cv:
 
     Skills:
       - label: Languages
-        details: C, C++, Python, Bash
+        details: C, C++, Python, CodeQL (QL), Bash
         name: Languages
-        keywords: C, C++, Python, Bash
-      - label: Frameworks
+        keywords: C, C++, Python, CodeQL (QL), Bash
+      - label: Tools
         details: CodeQL, LLVM, LangChain, GitHub Actions
-        name: Frameworks
+        name: Tools
         keywords: CodeQL, LLVM, LangChain, GitHub Actions
       - label: Areas
-        details: Static Analysis, Software Security, LLM Agents, Embedded Systems
+        details: Static Analysis, Software Security, Vulnerability Discovery, LLM Agents, Program Transformation, UEFI Firmware, Embedded Systems
         name: Areas
-        keywords: Static Analysis, Software Security, LLM Agents, Embedded Systems
+        keywords: Static Analysis, Software Security, Vulnerability Discovery, LLM Agents, Program Transformation, UEFI Firmware, Embedded Systems
