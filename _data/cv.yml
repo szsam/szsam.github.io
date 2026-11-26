@@ -61,18 +61,18 @@ cv:
         summary: Worked with Prof. Christophe Hauser on Aithos, an LLM-agent SAST triage framework (RAID 2026).
 
     Projects:
-      - name: Applying CodeQL Effectively to EDK II UEFI Firmware
+      - name: Enabling Effective SAST for EDK II UEFI Firmware
         location: Purdue
-        start_date: 2025
-        end_date: 2026
+        start_date: 2025-11
+        end_date: 2026-10
         highlights:
-          - "Audited EDK II's CodeQL CI deployment: outdated CodeQL, a misconfigured query suite, the most CVE-prone package excluded from builds, and no triage policy; submitted [version](https://github.com/tianocore/edk2/pull/12539) and [coverage](https://github.com/tianocore/edk2/pull/12540) fixes."
+          - "Audited EDK II's CodeQL CI deployment and found four issues: an outdated CodeQL version, a misconfigured query suite, the most CVE-prone package excluded from builds, and no alert-triage policy; submitted fixes for the [version](https://github.com/tianocore/edk2/pull/12539) and [build-coverage](https://github.com/tianocore/edk2/pull/12540) issues."
           - "Showed built-in queries catch only 1 of 15 past CVEs at 57.1% precision: they miss firmware untrusted inputs and target common C bug patterns, not EDK II's."
-          - "Developed EDK II taint models and queries catching all 15 CVEs at 84.4% precision, outperforming KNighter; found 10 new vulnerabilities, 1 [confirmed and fixed](https://github.com/tianocore/edk2/pull/12765)."
+          - "Developed EDK II taint models and queries that catch all 15 CVEs at 84.4% precision, outperforming KNighter (a state-of-the-art static-analysis checker synthesizer, whose checkers are overly specific); found 10 new vulnerabilities, 1 [confirmed and fixed](https://github.com/tianocore/edk2/pull/12765)."
 
-      - name: Learning Program-Transformation Rules for Collateral Evolution
+      - name: Automating Collateral Evolution with LLM Agents
         location: Purdue
-        start_date: 2025-01
+        start_date: 2026-03
         end_date: present
         highlights:
           - Developing an agentic technique that automatically learns symbolic program-transformation rules to automate collateral evolution in EDK II and the Linux kernel.
@@ -101,7 +101,7 @@ cv:
         start_date: 2022-07
         end_date: 2023-03
         highlights:
-          - Developed a static analysis tool to detect MMIO accesses bypassing the HAL.
+          - Developed an LLVM-based static analysis tool to detect MMIO accesses bypassing the HAL.
           - Analyzed 988 applications across 5 RTOSes; identified 369 violations.
 
     Publications:
@@ -159,9 +159,9 @@ cv:
         name: Languages
         keywords: C, C++, Python, CodeQL (QL), Bash
       - label: Tools
-        details: CodeQL, LLVM, LangChain, GitHub Actions
+        details: CodeQL, LLVM, LangChain, Claude Code, Codex, GitHub Actions
         name: Tools
-        keywords: CodeQL, LLVM, LangChain, GitHub Actions
+        keywords: CodeQL, LLVM, LangChain, Claude Code, Codex, GitHub Actions
       - label: Areas
         details: Static Analysis, Software Security, Vulnerability Discovery, LLM Agents, Program Transformation, UEFI Firmware, Embedded Systems
         name: Areas
